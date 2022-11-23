@@ -5,8 +5,7 @@
 #ifndef HELPERLIB_SCREENHELPER_H
 #define HELPERLIB_SCREENHELPER_H
 
-
-using namespace std;
+#include "inttypes.h"
 
 struct ScreenWidthHeight{
 public:
