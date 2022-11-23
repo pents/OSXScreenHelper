@@ -5,6 +5,9 @@
 #ifndef HELPERLIB_SCREENHELPER_H
 #define HELPERLIB_SCREENHELPER_H
 
+
+using namespace std;
+
 struct ScreenWidthHeight{
 public:
     int Width;
@@ -15,7 +18,22 @@ public:
     }
 };
 
+struct Screenshot{
+public:
+    int Width;
+    int Height;
+    int BitsPerPixel;
+    int8_t* ImageData;
+    Screenshot(int W, int H, int BPP, int8_t* data){
+        Width = W;
+        Height = H;
+        BitsPerPixel = BPP;
+        ImageData = data;
+    }
+};
+
 ScreenWidthHeight GetScreenResolution();
+Screenshot GetScreenshot();
 
 
 #endif //HELPERLIB_SCREENHELPER_H

@@ -8,7 +8,7 @@ cmake_minimum_required(VERSION 3.23)
 set(CMAKE_CXX_STANDARD 20)
 
 
-add_executable(screenHelperTest library.cpp)
+add_executable(screenHelperTest main.cpp)
 
 add_subdirectory(OSX_Screen)
 
