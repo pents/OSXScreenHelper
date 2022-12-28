@@ -16,6 +16,8 @@ target_link_libraries(screenHelperTest
         PUBLIC
         "-framework CoreGraphics"
         "-framework Foundation"
+        "-framework CoreServices"
+        "-framework ImageIO"
         PRIVATE
         OSX_Screen
         )

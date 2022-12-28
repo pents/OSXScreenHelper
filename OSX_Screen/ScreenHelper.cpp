@@ -3,90 +3,68 @@
 //
 
 #include "ScreenHelper.h"
-#include <UniformTypeIdentifiers/UniformTypeIdentifiers.h>
-#include <string>
-#include <CoreGraphics/CGDisplayConfiguration.h>
-#include <ApplicationServices/ApplicationServices.h>
+#include "ScreenHelperExternal.h"
 
-ScreenWidthHeight GetScreenResolution()
+ScreenWidthHeight* GetScreenResolution()
 {
     auto displayId = CGMainDisplayID();
     auto width  = CGDisplayPixelsWide(displayId);
     auto height = CGDisplayPixelsHigh(displayId);
-
-    ScreenWidthHeight result = ScreenWidthHeight((int)width, (int)height);
-
-    return result;
+    
+    auto result = ScreenWidthHeight((int)width, (int)height);
+    
+    ScreenWidthHeight* ptr = &result;
+    
+    return ptr;
 }
 
-Screenshot GetScreenshot()
+Screenshot* GetScreenshot()
 {
-    CGImageRef image_ref = CGDisplayCreateImage(CGMainDisplayID());
-
-    CGDataProviderRef provider_ref = CGImageGetDataProvider(image_ref);
-    CFDataRef data_ref = CGDataProviderCopyData(provider_ref);
-
-    auto width = CGImageGetWidth(image_ref);
-    auto height = CGImageGetHeight(image_ref);
-
-    size_t bpp = CGImageGetBitsPerPixel(image_ref) / 8;
-
-    auto *buffer = (int8_t*)malloc(width * height * bpp);
-    memcpy(buffer, CFDataGetBytePtr(data_ref), width * height * bpp);
-
-    CFRelease(data_ref);
-    CGImageRelease(image_ref);
-
-    return {(int)width, (int)height, (int)bpp, buffer};
-}
-
-bool SaveToFile(int8_t* buffer, uint16_t width, uint16_t height, std::string filename)
-{
-    bool status = false;
-
-    CGDataProviderRef provider_ref = CGDataProviderCreateWithData(NULL, buffer, width * height * 4, NULL);
-    if (provider_ref != NULL) {
-        CGColorSpaceRef cs_ref = CGColorSpaceCreateDeviceRGB();
-        if (cs_ref != nullptr) {
-            CGImageRef img_ref = CGImageCreate(
-                width,
-                height,
-                8,          // bitsPerComponent
-                32,         // bitsPerPixel
-                width * 4,  // bytesPerRow
-                cs_ref,
-                kCGBitmapByteOrderDefault,
-                provider_ref,
-                NULL,       // decode array
-                false,      // shouldInterpolate
-                kCGRenderingIntentDefault
-            );
-
-            if (img_ref != NULL) {
-                CFStringRef folderCFStr = CFStringCreateWithCString(0, filename.data(), kCFStringEncodingUTF8);
-                CFURLRef url_ref = CFURLCreateWithFileSystemPath(kCFAllocatorDefault, folderCFStr, kCFURLPOSIXPathStyle, false);
-                if (url_ref != NULL) {
-                    CGImageDestinationRef destination_ref = CGImageDestinationCreateWithURL(url_ref, UTTypePNG, 1, NULL);
-                    if (destination_ref != NULL) {
-                        CGImageDestinationAddImage(destination_ref, img_ref, NULL);
-                        if (CGImageDestinationFinalize(destination_ref)) {
-                            status = true;
-                        }
-
-                        CFRelease(destination_ref);
-                    }
-
-                    CFRelease(url_ref);
-                }
-
-                CGImageRelease(img_ref);
+    auto image_ref = CGDisplayCreateImage(CGMainDisplayID());
+    if (image_ref != nullptr){
+        auto width = CGImageGetWidth(image_ref);
+        auto height = CGImageGetHeight(image_ref);
+        auto dataProvider = CGImageGetDataProvider(image_ref);
+        if (dataProvider != nullptr){
+            auto cs_ref = CGImageGetColorSpace(image_ref);
+            if (cs_ref != nullptr) {
+                
+                Screenshot* result = (Screenshot*)malloc(sizeof(Screenshot));
+                result->ImageData = image_ref;
+                result->Width = width;
+                result->Height = height;
+                
+                CGColorSpaceRelease(cs_ref);
+                CGDataProviderRelease(dataProvider);
+                return result;
             }
-
-            CGColorSpaceRelease(cs_ref);
+            CGDataProviderRelease(dataProvider);
         }
-
-        CGDataProviderRelease(provider_ref);
     }
 
-    return status;
+    return nullptr;
+}
+
+bool SaveToFile(string* fileName, Screenshot* screenshot_ptr) {
+    
+    if (screenshot_ptr != nullptr) {
+        CFStringRef folderCFStr = CFStringCreateWithCString(0, fileName->data(), kCFStringEncodingUTF8);
+        CFURLRef url_ref = CFURLCreateWithFileSystemPath(kCFAllocatorDefault, folderCFStr, kCFURLPOSIXPathStyle, false);
+        
+        if (url_ref != nullptr) {
+            
+            CGImageDestinationRef destination_ref = CGImageDestinationCreateWithURL(url_ref, kUTTypePNG, 1, NULL);
+            
+            if (destination_ref != nullptr) {
+                
+                auto test = screenshot_ptr->ImageData;
+                CGImageDestinationAddImage(destination_ref, test, NULL);
+                CGImageDestinationFinalize(destination_ref);
+                CFRelease(destination_ref);
+            }
+
+            CFRelease(url_ref);
+            CFRelease(folderCFStr);
+        }
+    }
 }

@@ -5,6 +5,7 @@ target_sources(OSX_Screen
         ScreenHelper.cpp
         PUBLIC
         ${CMAKE_CURRENT_LIST_DIR}/ScreenHelper.h
+        ${CMAKE_CURRENT_LIST_DIR}/ScreenHelperExternal.h
         )
 
 target_include_directories(OSX_Screen

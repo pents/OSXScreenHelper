@@ -6,6 +6,14 @@
 #define HELPERLIB_SCREENHELPER_H
 
 #include "inttypes.h"
+#include <ImageIO/ImageIO.h>
+#include <string>
+#include <CoreGraphics/CGDisplayConfiguration.h>
+#include <CoreServices/CoreServices.h>
+#include <ApplicationServices/ApplicationServices.h>
+
+using namespace std;
+
 
 struct ScreenWidthHeight{
 public:
@@ -19,20 +27,26 @@ public:
 
 struct Screenshot{
 public:
-    int Width;
-    int Height;
-    int BitsPerPixel;
-    int8_t* ImageData;
-    Screenshot(int W, int H, int BPP, int8_t* data){
+    unsigned long Width;
+    unsigned long Height;
+    CGImageRef ImageData;
+    Screenshot(unsigned long W, unsigned long H, CGImageRef data){
         Width = W;
         Height = H;
-        BitsPerPixel = BPP;
         ImageData = data;
+    }
+    
+    ~Screenshot(){
+        if (ImageData != nullptr){
+            CGImageRelease(ImageData);
+        }
     }
 };
 
-ScreenWidthHeight GetScreenResolution();
-Screenshot GetScreenshot();
 
-
+ScreenWidthHeight* GetScreenResolution();
+Screenshot* GetScreenshot();
+bool SaveToFile(string* fileName, Screenshot* screenshot_ptr);
+    
+    
 #endif //HELPERLIB_SCREENHELPER_H

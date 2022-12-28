@@ -3,13 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
 		2805126CCC8B46808D1CC564 /* ZERO_CHECK */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = E0D2766088074B5685372AC9 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildConfigurationList = AC4AA8DDED974E67BEDD33D6 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
 			buildPhases = (
 				E8DDD0B3D45A33977C6CC1BE /* Generate CMakeFiles/ZERO_CHECK */,
 			);
@@ -20,14 +20,14 @@
 		};
 		5681BC24F2C244E988C4C6B5 /* ALL_BUILD */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = EC37CC5F9765441B8AE60D5A /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildConfigurationList = 5024FCB81D404F97BA6527A9 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
 			buildPhases = (
 				D6E876B47AE5A0D8BB1E6199 /* Generate CMakeFiles/ALL_BUILD */,
 			);
 			dependencies = (
-				099E39159502478F93950EF9 /* PBXTargetDependency */,
-				DEDF551AA27A41E29D6789B6 /* PBXTargetDependency */,
-				183F7719F8CE47B28410E578 /* PBXTargetDependency */,
+				860F5CC123D94EEF9F5A1D54 /* PBXTargetDependency */,
+				F0D764331B9441469A98FA53 /* PBXTargetDependency */,
+				B710A7AE9D634C198D91603F /* PBXTargetDependency */,
 			);
 			name = ALL_BUILD;
 			productName = ALL_BUILD;
@@ -35,83 +35,115 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		339B516B850447CFA7177650 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98EF00FDCC2F4742B34B48A3 /* main.cpp */; };
-		EDD687D370774E26961B8D6C /* ScreenHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 231E2802BF474760A1C0CFCD /* ScreenHelper.cpp */; };
+		35CD710AC9324597ABCF4F5E /* /Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/ScreenHelper.cpp */ = {isa = PBXBuildFile; fileRef = 359C74AD3548456CA1C8FDF7 /* /Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/ScreenHelper.cpp */; };
+		65977D693C7B40DB8938A86A /* /Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/ScreenHelper.h */ = {isa = PBXBuildFile; fileRef = 9566CF0C450F4C648609FAAC /* /Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/ScreenHelper.h */; };
+		82B70D65892F4D8B8DA91FC5 /* /Users/dmitdavydov/CLionProjects/HelperLib/main.cpp */ = {isa = PBXBuildFile; fileRef = 0E179B13A64F49F294764663 /* /Users/dmitdavydov/CLionProjects/HelperLib/main.cpp */; };
+		8366893C43EF49A0B7993C74 /* /Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/ScreenHelper.h */ = {isa = PBXBuildFile; fileRef = 4672A20C47714040B6425701 /* /Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/ScreenHelper.h */; };
+		BABB09DD19F544B09D87E480 /* /Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/ScreenHelperExternal.h */ = {isa = PBXBuildFile; fileRef = 48F426BD9622486CA545DF11 /* /Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/ScreenHelperExternal.h */; };
+		BDF850D8B5C04EFAA85E4F16 /* /Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/ScreenHelperExternal.h */ = {isa = PBXBuildFile; fileRef = FBAF86ED65614D0E9C88D4D6 /* /Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/ScreenHelperExternal.h */; };
+		E993CF302A294099B0A7F0F4 /* /Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 0B0CB9385E8E4DAFA7EDFEB9 /* /Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/CMakeLists.txt */; };
+		F7919501163047C2AFB44A4D /* /Users/dmitdavydov/CLionProjects/HelperLib/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = A36678B8535B4045AB8FE0E3 /* /Users/dmitdavydov/CLionProjects/HelperLib/CMakeLists.txt */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildStyle section */
+		133EAB4F29634C6396E102CC /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		70E34EAAA673491881B47D03 /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+		B309EA41CB89465394B1813A /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
+		D8138ADB0E1C453EB0713EC8 /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+/* End PBXBuildStyle section */
+
 /* Begin PBXContainerItemProxy section */
-		08FB754A292E55C4004D8B8A /* PBXContainerItemProxy */ = {
+		2BB392CE3C264B4F87DF8EFD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FC36A5158615485D9C71A439 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 4B89BCB982A04DA4B632214C;
 			remoteInfo = OSX_Screen;
 		};
-		275D245BC5AC483399B119F2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FC36A5158615485D9C71A439 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4B89BCB982A04DA4B632214C;
-			remoteInfo = OSX_Screen;
-		};
-		6E46A54141EF461CA7312063 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FC36A5158615485D9C71A439 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4B89BCB982A04DA4B632214C;
-			remoteInfo = OSX_Screen;
-		};
-		7D8C34DAB88A4C5DBDD95704 /* PBXContainerItemProxy */ = {
+		CA750F6CEAD44752A999A53C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FC36A5158615485D9C71A439 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2805126CCC8B46808D1CC564;
 			remoteInfo = ZERO_CHECK;
 		};
-		E628E7F08699419A91FCD884 /* PBXContainerItemProxy */ = {
+		D0963F7B9C9B45EB84B2F163 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FC36A5158615485D9C71A439 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2805126CCC8B46808D1CC564;
+			remoteInfo = ZERO_CHECK;
+		};
+		E109CA65878C4C08B8EBE21C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FC36A5158615485D9C71A439 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 7741300265A54835BB35BEAF;
 			remoteInfo = screenHelperTest;
 		};
-		EEB74988D79D42279CDECAC3 /* PBXContainerItemProxy */ = {
+		F263B3C857924F28A94316DA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FC36A5158615485D9C71A439 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2805126CCC8B46808D1CC564;
 			remoteInfo = ZERO_CHECK;
 		};
-		F4E885BB8E8648319F9E0E4D /* PBXContainerItemProxy */ = {
+		F9DB97CBE89A41A5B09CDF88 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FC36A5158615485D9C71A439 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2805126CCC8B46808D1CC564;
-			remoteInfo = ZERO_CHECK;
+			remoteGlobalIDString = 4B89BCB982A04DA4B632214C;
+			remoteInfo = OSX_Screen;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04D9B765EB7540999EB4453F /* ScreenHelper.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ScreenHelper.h; path = OSX_Screen/ScreenHelper.h; sourceTree = SOURCE_ROOT; };
-		206FB2C8A62F4080B886A8D6 /* libOSX_Screen.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libOSX_Screen.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		231E2802BF474760A1C0CFCD /* ScreenHelper.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ScreenHelper.cpp; path = OSX_Screen/ScreenHelper.cpp; sourceTree = SOURCE_ROOT; };
-		314BF52E1A3D441A8313071C /* ScreenHelper.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ScreenHelper.h; path = OSX_Screen/ScreenHelper.h; sourceTree = SOURCE_ROOT; };
-		3B3326652B3448CE8ED6751B /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		719216B76F174AD3BD3FAAE6 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.make; fileEncoding = 4; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		933034D0431747C7AE012E5A /* screenHelperTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = screenHelperTest; sourceTree = BUILT_PRODUCTS_DIR; };
-		98EF00FDCC2F4742B34B48A3 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = main.cpp; sourceTree = SOURCE_ROOT; };
-		A15D5E872FD84921B3306FA1 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; name = CMakeLists.txt; path = OSX_Screen/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		02EA4E5276B04D9C96ACBBA8 /* screenHelperTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = screenHelperTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B0CB9385E8E4DAFA7EDFEB9 /* /Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = OSX_Screen/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		0E179B13A64F49F294764663 /* /Users/dmitdavydov/CLionProjects/HelperLib/main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = main.cpp; path = main.cpp; sourceTree = SOURCE_ROOT; };
+		359C74AD3548456CA1C8FDF7 /* /Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/ScreenHelper.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ScreenHelper.cpp; path = OSX_Screen/ScreenHelper.cpp; sourceTree = SOURCE_ROOT; };
+		4672A20C47714040B6425701 /* /Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/ScreenHelper.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ScreenHelper.h; path = OSX_Screen/ScreenHelper.h; sourceTree = SOURCE_ROOT; };
+		48F426BD9622486CA545DF11 /* /Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/ScreenHelperExternal.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ScreenHelperExternal.h; path = OSX_Screen/ScreenHelperExternal.h; sourceTree = SOURCE_ROOT; };
+		8E8A49F6510540B6B8D5004E /* /Users/dmitdavydov/CLionProjects/HelperLib/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		9566CF0C450F4C648609FAAC /* /Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/ScreenHelper.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ScreenHelper.h; path = OSX_Screen/ScreenHelper.h; sourceTree = SOURCE_ROOT; };
+		9B8990614CCD45CE9BF44092 /* OSX_Screen */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libOSX_Screen.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A36678B8535B4045AB8FE0E3 /* /Users/dmitdavydov/CLionProjects/HelperLib/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		FBAF86ED65614D0E9C88D4D6 /* /Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/ScreenHelperExternal.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ScreenHelperExternal.h; path = OSX_Screen/ScreenHelperExternal.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3C4318703725467FA168CAC7 /* Frameworks */ = {
+		046BE2700D884A9B91AA1B9C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4D55870AE6E24C7DBC101830 /* Frameworks */ = {
+		E480A7A7062744C69653999D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -121,99 +153,101 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		093BD6E6F000487583F0FE01 /* Source Files */ = {
+		00153BE8352A4612BADBFCDA /* Header Files */ = {
 			isa = PBXGroup;
 			children = (
-				231E2802BF474760A1C0CFCD /* ScreenHelper.cpp */,
-			);
-			name = "Source Files";
-			sourceTree = "<group>";
-		};
-		1CCC6776169B421F96702C7B /* Source Files */ = {
-			isa = PBXGroup;
-			children = (
-				98EF00FDCC2F4742B34B48A3 /* main.cpp */,
-			);
-			name = "Source Files";
-			sourceTree = "<group>";
-		};
-		2B6FD4B1775648948352521D /* screenHelperTest */ = {
-			isa = PBXGroup;
-			children = (
-				1CCC6776169B421F96702C7B /* Source Files */,
-				53D84E142BB94806ADE6BDF5 /* Header Files */,
-				3B3326652B3448CE8ED6751B /* CMakeLists.txt */,
-			);
-			name = screenHelperTest;
-			sourceTree = "<group>";
-		};
-		4ADF572011C64EBC92FE7E49 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				206FB2C8A62F4080B886A8D6 /* libOSX_Screen.a */,
-				933034D0431747C7AE012E5A /* screenHelperTest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		53D84E142BB94806ADE6BDF5 /* Header Files */ = {
-			isa = PBXGroup;
-			children = (
-				314BF52E1A3D441A8313071C /* ScreenHelper.h */,
+				9566CF0C450F4C648609FAAC /* /Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/ScreenHelper.h */,
+				FBAF86ED65614D0E9C88D4D6 /* /Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/ScreenHelperExternal.h */,
 			);
 			name = "Header Files";
 			sourceTree = "<group>";
 		};
-		8F0167C2E7C74EC8880A66C8 /* Header Files */ = {
+		16715437E10E4D9AA8278B00 /* ALL_BUILD */ = {
 			isa = PBXGroup;
 			children = (
-				04D9B765EB7540999EB4453F /* ScreenHelper.h */,
-			);
-			name = "Header Files";
-			sourceTree = "<group>";
-		};
-		91212F5C5DDC43A195FF8FA9 /* ALL_BUILD */ = {
-			isa = PBXGroup;
-			children = (
-				997DBFB35DBB41B8A53A5C17 /* CMake Rules */,
-				719216B76F174AD3BD3FAAE6 /* CMakeLists.txt */,
+				EBAD9B8F9AE24A3F8FE5E0E0 /* CMake Rules */,
+				8E8A49F6510540B6B8D5004E /* /Users/dmitdavydov/CLionProjects/HelperLib/CMakeLists.txt */,
 			);
 			name = ALL_BUILD;
 			sourceTree = "<group>";
 		};
-		997DBFB35DBB41B8A53A5C17 /* CMake Rules */ = {
+		332B2D7CA1724C31B4A75CBD = {
 			isa = PBXGroup;
 			children = (
-			);
-			name = "CMake Rules";
-			sourceTree = "<group>";
-		};
-		D131161E295E41268794A402 = {
-			isa = PBXGroup;
-			children = (
-				2B6FD4B1775648948352521D /* screenHelperTest */,
-				91212F5C5DDC43A195FF8FA9 /* ALL_BUILD */,
-				F215A092E2B74CE4B5708E57 /* OSX_Screen */,
-				4ADF572011C64EBC92FE7E49 /* Products */,
-				D75E1F88B1924297BABB46DF /* Frameworks */,
+				C125E54545C74A5EA0290292 /* screenHelperTest */,
+				16715437E10E4D9AA8278B00 /* ALL_BUILD */,
+				3E2A24DF83294444B7482EFC /* OSX_Screen */,
+				63670DE3BB3A4C2AAD114731 /* Products */,
+				52F25A87110345D9B0D70F13 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		D75E1F88B1924297BABB46DF /* Frameworks */ = {
+		38AA8B0453C44397AB8C97B4 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				359C74AD3548456CA1C8FDF7 /* /Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/ScreenHelper.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		3C5741E1C7D3412D8D3DECB3 /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				4672A20C47714040B6425701 /* /Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/ScreenHelper.h */,
+				48F426BD9622486CA545DF11 /* /Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/ScreenHelperExternal.h */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		3E2A24DF83294444B7482EFC /* OSX_Screen */ = {
+			isa = PBXGroup;
+			children = (
+				38AA8B0453C44397AB8C97B4 /* Source Files */,
+				00153BE8352A4612BADBFCDA /* Header Files */,
+				0B0CB9385E8E4DAFA7EDFEB9 /* /Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/CMakeLists.txt */,
+			);
+			name = OSX_Screen;
+			sourceTree = "<group>";
+		};
+		52F25A87110345D9B0D70F13 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F215A092E2B74CE4B5708E57 /* OSX_Screen */ = {
+		5BBD5B63980D4E198DEBA1BA /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
-				093BD6E6F000487583F0FE01 /* Source Files */,
-				8F0167C2E7C74EC8880A66C8 /* Header Files */,
-				A15D5E872FD84921B3306FA1 /* CMakeLists.txt */,
+				0E179B13A64F49F294764663 /* /Users/dmitdavydov/CLionProjects/HelperLib/main.cpp */,
 			);
-			name = OSX_Screen;
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		63670DE3BB3A4C2AAD114731 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9B8990614CCD45CE9BF44092 /* OSX_Screen */,
+				02EA4E5276B04D9C96ACBBA8 /* screenHelperTest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C125E54545C74A5EA0290292 /* screenHelperTest */ = {
+			isa = PBXGroup;
+			children = (
+				5BBD5B63980D4E198DEBA1BA /* Source Files */,
+				3C5741E1C7D3412D8D3DECB3 /* Header Files */,
+				A36678B8535B4045AB8FE0E3 /* /Users/dmitdavydov/CLionProjects/HelperLib/CMakeLists.txt */,
+			);
+			name = screenHelperTest;
+			sourceTree = "<group>";
+		};
+		EBAD9B8F9AE24A3F8FE5E0E0 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,38 +255,37 @@
 /* Begin PBXNativeTarget section */
 		4B89BCB982A04DA4B632214C /* OSX_Screen */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 78017494C10E43F69DE24C65 /* Build configuration list for PBXNativeTarget "OSX_Screen" */;
+			buildConfigurationList = BC976948E26E4FAE87889E3E /* Build configuration list for PBXNativeTarget "OSX_Screen" */;
 			buildPhases = (
-				F3A01EF0E56B407B89FA2224 /* Sources */,
-				4D55870AE6E24C7DBC101830 /* Frameworks */,
+				7921DA3BAC03495E802CE994 /* Sources */,
+				046BE2700D884A9B91AA1B9C /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				70E732C6A5CC4D8995BF3001 /* PBXTargetDependency */,
+				BDB0FAE617F342358267F71B /* PBXTargetDependency */,
 			);
 			name = OSX_Screen;
 			productName = OSX_Screen;
-			productReference = 206FB2C8A62F4080B886A8D6 /* libOSX_Screen.a */;
+			productReference = 9B8990614CCD45CE9BF44092 /* OSX_Screen */;
 			productType = "com.apple.product-type.library.static";
 		};
 		7741300265A54835BB35BEAF /* screenHelperTest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3C306DC1199F40ACBDCCBEA4 /* Build configuration list for PBXNativeTarget "screenHelperTest" */;
+			buildConfigurationList = ACF0264E99834DE0A04AAC62 /* Build configuration list for PBXNativeTarget "screenHelperTest" */;
 			buildPhases = (
-				428C7C7B433C45BE86535D70 /* Sources */,
-				3C4318703725467FA168CAC7 /* Frameworks */,
+				C25369F3299B4C2886982A00 /* Sources */,
+				E480A7A7062744C69653999D /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DC4EC2E958FF4437B6974D69 /* PBXTargetDependency */,
-				FFDB2A4438A041A9AEC191F4 /* PBXTargetDependency */,
-				08FB754B292E55C4004D8B8A /* PBXTargetDependency */,
+				2A4FB8B963A94FBE91133F1E /* PBXTargetDependency */,
+				42F1B3CA458A41EE869AE155 /* PBXTargetDependency */,
 			);
 			name = screenHelperTest;
 			productName = screenHelperTest;
-			productReference = 933034D0431747C7AE012E5A /* screenHelperTest */;
+			productReference = 02EA4E5276B04D9C96ACBBA8 /* screenHelperTest */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -261,18 +294,22 @@
 		FC36A5158615485D9C71A439 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1410;
 			};
-			buildConfigurationList = C92F3DC60CB34499BCEB2BE6 /* Build configuration list for PBXProject "ScreenHelper" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = en;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
+			buildConfigurationList = 7CA4E51D357C46708FEFCBCD /* Build configuration list for PBXProject "ScreenHelper" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				133EAB4F29634C6396E102CC /* Debug */,
+				B309EA41CB89465394B1813A /* Release */,
+				D8138ADB0E1C453EB0713EC8 /* MinSizeRel */,
+				70E34EAAA673491881B47D03 /* RelWithDebInfo */,
 			);
-			mainGroup = D131161E295E41268794A402;
-			projectDirPath = "";
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			mainGroup = 332B2D7CA1724C31B4A75CBD;
+			projectDirPath = .;
 			projectRoot = "";
 			targets = (
 				5681BC24F2C244E988C4C6B5 /* ALL_BUILD */,
@@ -284,6 +321,36 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3C0110FC8322DE7E50886E21 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		9B50530E35CC49C82C2FACCF = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
 		D6E876B47AE5A0D8BB1E6199 /* Generate CMakeFiles/ALL_BUILD */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -294,11 +361,27 @@
 			);
 			name = "Generate CMakeFiles/ALL_BUILD";
 			outputPaths = (
-				/Users/dmitdavydov/CLionProjects/HelperLib/CMakeFiles/ALL_BUILD,
-			);
+/Users/dmitdavydov/CLionProjects/HelperLib/CMakeFiles/ALL_BUILD			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\nif test \"$CONFIGURATION\" = \"Debug\"; then :\n  cd /Users/dmitdavydov/CLionProjects/HelperLib\n  echo Build\\ all\\ projects\nfi\nif test \"$CONFIGURATION\" = \"Release\"; then :\n  cd /Users/dmitdavydov/CLionProjects/HelperLib\n  echo Build\\ all\\ projects\nfi\nif test \"$CONFIGURATION\" = \"MinSizeRel\"; then :\n  cd /Users/dmitdavydov/CLionProjects/HelperLib\n  echo Build\\ all\\ projects\nfi\nif test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :\n  cd /Users/dmitdavydov/CLionProjects/HelperLib\n  echo Build\\ all\\ projects\nfi\n";
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/dmitdavydov/CLionProjects/HelperLib
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/dmitdavydov/CLionProjects/HelperLib
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd /Users/dmitdavydov/CLionProjects/HelperLib
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd /Users/dmitdavydov/CLionProjects/HelperLib
+  echo Build\\ all\\ projects
+fi
+";
 			showEnvVarsInLog = 0;
 		};
 		E8DDD0B3D45A33977C6CC1BE /* Generate CMakeFiles/ZERO_CHECK */ = {
@@ -311,121 +394,106 @@
 			);
 			name = "Generate CMakeFiles/ZERO_CHECK";
 			outputPaths = (
-				/Users/dmitdavydov/CLionProjects/HelperLib/CMakeFiles/ZERO_CHECK,
-			);
+/Users/dmitdavydov/CLionProjects/HelperLib/CMakeFiles/ZERO_CHECK			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\nif test \"$CONFIGURATION\" = \"Debug\"; then :\n  cd /Users/dmitdavydov/CLionProjects/HelperLib\n  make -f /Users/dmitdavydov/CLionProjects/HelperLib/CMakeScripts/ReRunCMake.make\nfi\nif test \"$CONFIGURATION\" = \"Release\"; then :\n  cd /Users/dmitdavydov/CLionProjects/HelperLib\n  make -f /Users/dmitdavydov/CLionProjects/HelperLib/CMakeScripts/ReRunCMake.make\nfi\nif test \"$CONFIGURATION\" = \"MinSizeRel\"; then :\n  cd /Users/dmitdavydov/CLionProjects/HelperLib\n  make -f /Users/dmitdavydov/CLionProjects/HelperLib/CMakeScripts/ReRunCMake.make\nfi\nif test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :\n  cd /Users/dmitdavydov/CLionProjects/HelperLib\n  make -f /Users/dmitdavydov/CLionProjects/HelperLib/CMakeScripts/ReRunCMake.make\nfi\n";
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/dmitdavydov/CLionProjects/HelperLib
+  make -f /Users/dmitdavydov/CLionProjects/HelperLib/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/dmitdavydov/CLionProjects/HelperLib
+  make -f /Users/dmitdavydov/CLionProjects/HelperLib/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd /Users/dmitdavydov/CLionProjects/HelperLib
+  make -f /Users/dmitdavydov/CLionProjects/HelperLib/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd /Users/dmitdavydov/CLionProjects/HelperLib
+  make -f /Users/dmitdavydov/CLionProjects/HelperLib/CMakeScripts/ReRunCMake.make
+fi
+";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		428C7C7B433C45BE86535D70 /* Sources */ = {
+		7921DA3BAC03495E802CE994 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				339B516B850447CFA7177650 /* main.cpp in Sources */,
+				35CD710AC9324597ABCF4F5E /* /Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/ScreenHelper.cpp */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F3A01EF0E56B407B89FA2224 /* Sources */ = {
+		C25369F3299B4C2886982A00 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDD687D370774E26961B8D6C /* ScreenHelper.cpp in Sources */,
+				82B70D65892F4D8B8DA91FC5 /* /Users/dmitdavydov/CLionProjects/HelperLib/main.cpp */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		08FB754B292E55C4004D8B8A /* PBXTargetDependency */ = {
+		2A4FB8B963A94FBE91133F1E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4B89BCB982A04DA4B632214C /* OSX_Screen */;
-			targetProxy = 08FB754A292E55C4004D8B8A /* PBXContainerItemProxy */;
+			targetProxy = 2BB392CE3C264B4F87DF8EFD /* PBXContainerItemProxy */;
 		};
-		099E39159502478F93950EF9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4B89BCB982A04DA4B632214C /* OSX_Screen */;
-			targetProxy = 275D245BC5AC483399B119F2 /* PBXContainerItemProxy */;
-		};
-		183F7719F8CE47B28410E578 /* PBXTargetDependency */ = {
+		42F1B3CA458A41EE869AE155 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2805126CCC8B46808D1CC564 /* ZERO_CHECK */;
-			targetProxy = EEB74988D79D42279CDECAC3 /* PBXContainerItemProxy */;
+			targetProxy = D0963F7B9C9B45EB84B2F163 /* PBXContainerItemProxy */;
 		};
-		70E732C6A5CC4D8995BF3001 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2805126CCC8B46808D1CC564 /* ZERO_CHECK */;
-			targetProxy = F4E885BB8E8648319F9E0E4D /* PBXContainerItemProxy */;
-		};
-		DC4EC2E958FF4437B6974D69 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4B89BCB982A04DA4B632214C /* OSX_Screen */;
-			targetProxy = 6E46A54141EF461CA7312063 /* PBXContainerItemProxy */;
-		};
-		DEDF551AA27A41E29D6789B6 /* PBXTargetDependency */ = {
+		860F5CC123D94EEF9F5A1D54 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7741300265A54835BB35BEAF /* screenHelperTest */;
-			targetProxy = E628E7F08699419A91FCD884 /* PBXContainerItemProxy */;
+			targetProxy = E109CA65878C4C08B8EBE21C /* PBXContainerItemProxy */;
 		};
-		FFDB2A4438A041A9AEC191F4 /* PBXTargetDependency */ = {
+		B710A7AE9D634C198D91603F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2805126CCC8B46808D1CC564 /* ZERO_CHECK */;
-			targetProxy = 7D8C34DAB88A4C5DBDD95704 /* PBXContainerItemProxy */;
+			targetProxy = CA750F6CEAD44752A999A53C /* PBXContainerItemProxy */;
+		};
+		BDB0FAE617F342358267F71B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2805126CCC8B46808D1CC564 /* ZERO_CHECK */;
+			targetProxy = F263B3C857924F28A94316DA /* PBXContainerItemProxy */;
+		};
+		F0D764331B9441469A98FA53 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4B89BCB982A04DA4B632214C /* OSX_Screen */;
+			targetProxy = F9DB97CBE89A41A5B09CDF88 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		01BC8B8F55B44BC7B2D1505B /* MinSizeRel */ = {
+		07593B18944E469FA207CE52 /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = arm64;
-				MACOSX_DEPLOYMENT_TARGET = 12.6;
-				SDKROOT = macosx13.0;
-				SYMROOT = /Users/dmitdavydov/CLionProjects/HelperLib/build;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
 			};
 			name = MinSizeRel;
 		};
-		01E65CF1B8174F169AB1E849 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = arm64;
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = /Users/dmitdavydov/CLionProjects/HelperLib/lib/Release;
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (
-					/Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen,
-					"$(inherited)",
-				);
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNDEBUG",
-					"'-std=gnu++20'",
-				);
-				OTHER_LIBTOOLFLAGS = "";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = OSX_Screen;
-				SECTORDER_FLAGS = "";
-				TARGET_TEMP_DIR = "/Users/dmitdavydov/CLionProjects/HelperLib/build/OSX_Screen.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = "$(inherited)";
-			};
-			name = Release;
-		};
-		0683D1BD42E6429F891DD391 /* Release */ = {
+		0DC417340B88485988B2AF76 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = arm64;
@@ -433,23 +501,20 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INSTALL_PATH = "";
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = " $(inherited)";
+				OTHER_LDFLAGS = ("","$(inherited)");
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = ZERO_CHECK;
 				SECTORDER_FLAGS = "";
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = "$(inherited)";
+				WARNING_CFLAGS = ("$(inherited)");
 			};
-			name = Release;
+			name = RelWithDebInfo;
 		};
-		10E4A7F9FF5C4C3AACE4ECC9 /* Debug */ = {
+		0FBDB1591DD24A45B23765D8 /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = arm64;
@@ -457,81 +522,20 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INSTALL_PATH = "";
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = " $(inherited)";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = "$(inherited)";
-			};
-			name = Debug;
-		};
-		21171632CB1542E5B43E5E34 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = arm64;
-				MACOSX_DEPLOYMENT_TARGET = 12.6;
-				SDKROOT = macosx13.0;
-				SYMROOT = /Users/dmitdavydov/CLionProjects/HelperLib/build;
-			};
-			name = Release;
-		};
-		2913FB3B70B64266BCD7BB3B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = arm64;
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = " $(inherited)";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = "$(inherited)";
-			};
-			name = Release;
-		};
-		47A25E07A7E446FE98069BA0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = arm64;
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = " $(inherited)";
+				OTHER_LDFLAGS = ("","$(inherited)");
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = ZERO_CHECK;
 				SECTORDER_FLAGS = "";
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = "$(inherited)";
+				WARNING_CFLAGS = ("$(inherited)");
 			};
-			name = Debug;
+			name = MinSizeRel;
 		};
-		5CD91B795E7B4036856DB827 /* RelWithDebInfo */ = {
+		1352DC54073246EBBAFD5259 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = arm64;
@@ -542,356 +546,23 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 2;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (
-					/Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen,
-					"$(inherited)",
-				);
+				HEADER_SEARCH_PATHS = (/Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen,"$(inherited)");
 				INSTALL_PATH = "";
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNDEBUG",
-					"'-std=gnu++20'",
-				);
-				OTHER_LDFLAGS = (
-					"-Wl,-search_paths_first",
-					"-Wl,-headerpad_max_install_names",
-					"-framework",
-					CoreGraphics,
-					"-framework",
-					Foundation,
-					/Users/dmitdavydov/CLionProjects/HelperLib/lib/RelWithDebInfo/libOSX_Screen.a,
-					"$(inherited)",
-				);
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=gnu++20' ";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names","-framework CoreGraphics","-framework Foundation","-framework CoreServices","-framework ImageIO",/Users/dmitdavydov/CLionProjects/HelperLib/lib/RelWithDebInfo/libOSX_Screen.a,"$(inherited)");
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = screenHelperTest;
 				SECTORDER_FLAGS = "";
 				TARGET_TEMP_DIR = "/Users/dmitdavydov/CLionProjects/HelperLib/build/screenHelperTest.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = "$(inherited)";
+				WARNING_CFLAGS = ("$(inherited)");
 			};
 			name = RelWithDebInfo;
 		};
-		5F0E3C3D654541A393721E46 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = arm64;
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = " $(inherited)";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = "$(inherited)";
-			};
-			name = MinSizeRel;
-		};
-		622482F234764C7C897249BB /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = arm64;
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = " $(inherited)";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = "$(inherited)";
-			};
-			name = RelWithDebInfo;
-		};
-		6F5D81598ADE4227BF84B949 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = arm64;
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = /Users/dmitdavydov/CLionProjects/HelperLib/lib/Debug;
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (
-					/Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen,
-					"$(inherited)",
-				);
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CPLUSPLUSFLAGS = "   '-std=gnu++20' ";
-				OTHER_LIBTOOLFLAGS = "";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = OSX_Screen;
-				SECTORDER_FLAGS = "";
-				TARGET_TEMP_DIR = "/Users/dmitdavydov/CLionProjects/HelperLib/build/OSX_Screen.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = "$(inherited)";
-			};
-			name = Debug;
-		};
-		70317F4B85E544E6AFF789B8 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = arm64;
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = " $(inherited)";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = "$(inherited)";
-			};
-			name = MinSizeRel;
-		};
-		726C681FE8C94AB78C11A4F7 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = arm64;
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = /Users/dmitdavydov/CLionProjects/HelperLib/lib/MinSizeRel;
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = s;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (
-					/Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen,
-					"$(inherited)",
-				);
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNDEBUG",
-					"'-std=gnu++20'",
-				);
-				OTHER_LIBTOOLFLAGS = "";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = OSX_Screen;
-				SECTORDER_FLAGS = "";
-				TARGET_TEMP_DIR = "/Users/dmitdavydov/CLionProjects/HelperLib/build/OSX_Screen.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = "$(inherited)";
-			};
-			name = MinSizeRel;
-		};
-		809F823E28C5409087010FDE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = arm64;
-				MACOSX_DEPLOYMENT_TARGET = 12.6;
-				SDKROOT = macosx13.0;
-				SYMROOT = /Users/dmitdavydov/CLionProjects/HelperLib/build;
-			};
-			name = Debug;
-		};
-		8F3039819B7B4E678C219632 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = arm64;
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = /Users/dmitdavydov/CLionProjects/HelperLib/lib/RelWithDebInfo;
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 2;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (
-					/Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen,
-					"$(inherited)",
-				);
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNDEBUG",
-					"'-std=gnu++20'",
-				);
-				OTHER_LIBTOOLFLAGS = "";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = OSX_Screen;
-				SECTORDER_FLAGS = "";
-				TARGET_TEMP_DIR = "/Users/dmitdavydov/CLionProjects/HelperLib/build/OSX_Screen.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = "$(inherited)";
-			};
-			name = RelWithDebInfo;
-		};
-		9895316723B3437488D1BE4F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = arm64;
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = /Users/dmitdavydov/CLionProjects/HelperLib/bin/Release;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (
-					/Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen,
-					"$(inherited)",
-				);
-				INSTALL_PATH = "";
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNDEBUG",
-					"'-std=gnu++20'",
-				);
-				OTHER_LDFLAGS = (
-					"-Wl,-search_paths_first",
-					"-Wl,-headerpad_max_install_names",
-					"-framework",
-					CoreGraphics,
-					"-framework",
-					Foundation,
-					/Users/dmitdavydov/CLionProjects/HelperLib/lib/Release/libOSX_Screen.a,
-					"$(inherited)",
-				);
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = screenHelperTest;
-				SECTORDER_FLAGS = "";
-				TARGET_TEMP_DIR = "/Users/dmitdavydov/CLionProjects/HelperLib/build/screenHelperTest.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = "$(inherited)";
-			};
-			name = Release;
-		};
-		9FB37FF6B1CC4B9F9BE2989E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = arm64;
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = /Users/dmitdavydov/CLionProjects/HelperLib/bin/Debug;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (
-					/Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen,
-					"$(inherited)",
-				);
-				INSTALL_PATH = "";
-				"INSTALL_PATH[sdk=macosx*]" = "";
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CPLUSPLUSFLAGS = "   '-std=gnu++20' ";
-				OTHER_LDFLAGS = (
-					"-Wl,-search_paths_first",
-					"-Wl,-headerpad_max_install_names",
-					"-framework",
-					CoreGraphics,
-					"-framework",
-					Foundation,
-					/Users/dmitdavydov/CLionProjects/HelperLib/lib/Debug/libOSX_Screen.a,
-					"$(inherited)",
-				);
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = screenHelperTest;
-				SECTORDER_FLAGS = "";
-				TARGET_TEMP_DIR = "/Users/dmitdavydov/CLionProjects/HelperLib/build/screenHelperTest.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = "$(inherited)";
-			};
-			name = Debug;
-		};
-		B8AB8D5266EB44509A046E25 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = arm64;
-				MACOSX_DEPLOYMENT_TARGET = 12.6;
-				SDKROOT = macosx13.0;
-				SYMROOT = /Users/dmitdavydov/CLionProjects/HelperLib/build;
-			};
-			name = RelWithDebInfo;
-		};
-		BFE98987973B4BE18204CF46 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = arm64;
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = " $(inherited)";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = "$(inherited)";
-			};
-			name = RelWithDebInfo;
-		};
-		C540B961936B490592378846 /* MinSizeRel */ = {
+		1FD4FB612CEE458AB0FBADC3 /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = arm64;
@@ -902,95 +573,387 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = s;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (
-					/Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen,
-					"$(inherited)",
-				);
+				HEADER_SEARCH_PATHS = (/Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen,"$(inherited)");
 				INSTALL_PATH = "";
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNDEBUG",
-					"'-std=gnu++20'",
-				);
-				OTHER_LDFLAGS = (
-					"-Wl,-search_paths_first",
-					"-Wl,-headerpad_max_install_names",
-					"-framework",
-					CoreGraphics,
-					"-framework",
-					Foundation,
-					/Users/dmitdavydov/CLionProjects/HelperLib/lib/MinSizeRel/libOSX_Screen.a,
-					"$(inherited)",
-				);
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++20' ";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names","-framework CoreGraphics","-framework Foundation","-framework CoreServices","-framework ImageIO",/Users/dmitdavydov/CLionProjects/HelperLib/lib/MinSizeRel/libOSX_Screen.a,"$(inherited)");
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = screenHelperTest;
 				SECTORDER_FLAGS = "";
 				TARGET_TEMP_DIR = "/Users/dmitdavydov/CLionProjects/HelperLib/build/screenHelperTest.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = "$(inherited)";
+				WARNING_CFLAGS = ("$(inherited)");
 			};
 			name = MinSizeRel;
+		};
+		2C9A79030A274DE2A94D1C78 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/dmitdavydov/CLionProjects/HelperLib/lib/RelWithDebInfo;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen,"$(inherited)");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=gnu++20' ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = OSX_Screen;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/dmitdavydov/CLionProjects/HelperLib/build/OSX_Screen.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		37118DA820EB4641B6DE60F2 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 12.6;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk;
+				SYMROOT = /Users/dmitdavydov/CLionProjects/HelperLib/build;
+			};
+			name = MinSizeRel;
+		};
+		4AFBBCB4BBD34C1E8EB04427 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 12.6;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk;
+				SYMROOT = /Users/dmitdavydov/CLionProjects/HelperLib/build;
+			};
+			name = Debug;
+		};
+		4FF7F3DB2F0C43C3BCD5067C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		54E6FD38CC6042C4A553B4FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		7F2622E99927473DBCC3B86B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 12.6;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk;
+				SYMROOT = /Users/dmitdavydov/CLionProjects/HelperLib/build;
+			};
+			name = Release;
+		};
+		865FCEEF632149069D75E604 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		9603232E59D74A9FB9027619 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/dmitdavydov/CLionProjects/HelperLib/bin/Debug;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen,"$(inherited)");
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "   '-std=gnu++20' ";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names","-framework CoreGraphics","-framework Foundation","-framework CoreServices","-framework ImageIO",/Users/dmitdavydov/CLionProjects/HelperLib/lib/Debug/libOSX_Screen.a,"$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = screenHelperTest;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/dmitdavydov/CLionProjects/HelperLib/build/screenHelperTest.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		A3A10C8A81E944B4B675FAE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/dmitdavydov/CLionProjects/HelperLib/bin/Release;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen,"$(inherited)");
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++20' ";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names","-framework CoreGraphics","-framework Foundation","-framework CoreServices","-framework ImageIO",/Users/dmitdavydov/CLionProjects/HelperLib/lib/Release/libOSX_Screen.a,"$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = screenHelperTest;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/dmitdavydov/CLionProjects/HelperLib/build/screenHelperTest.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		A9C51D97BA37404FAF8EFB36 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 12.6;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk;
+				SYMROOT = /Users/dmitdavydov/CLionProjects/HelperLib/build;
+			};
+			name = RelWithDebInfo;
+		};
+		D94C9BFC971B4CE5902C5EC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/dmitdavydov/CLionProjects/HelperLib/lib/Debug;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen,"$(inherited)");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "   '-std=gnu++20' ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = OSX_Screen;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/dmitdavydov/CLionProjects/HelperLib/build/OSX_Screen.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		DBAF5733DACE405A9B4B642D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/dmitdavydov/CLionProjects/HelperLib/lib/Release;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen,"$(inherited)");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++20' ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = OSX_Screen;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/dmitdavydov/CLionProjects/HelperLib/build/OSX_Screen.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		E0D1037F1CA847F79AFCB266 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/dmitdavydov/CLionProjects/HelperLib/lib/MinSizeRel;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen,"$(inherited)");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++20' ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = OSX_Screen;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/dmitdavydov/CLionProjects/HelperLib/build/OSX_Screen.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		E32D9037749B436FB0CAFBD4 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		EE8DE6266FDA4D33A6AB7DAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3C306DC1199F40ACBDCCBEA4 /* Build configuration list for PBXNativeTarget "screenHelperTest" */ = {
+		5024FCB81D404F97BA6527A9 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9FB37FF6B1CC4B9F9BE2989E /* Debug */,
-				9895316723B3437488D1BE4F /* Release */,
-				C540B961936B490592378846 /* MinSizeRel */,
-				5CD91B795E7B4036856DB827 /* RelWithDebInfo */,
+				865FCEEF632149069D75E604 /* Debug */,
+				4FF7F3DB2F0C43C3BCD5067C /* Release */,
+				07593B18944E469FA207CE52 /* MinSizeRel */,
+				E32D9037749B436FB0CAFBD4 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		78017494C10E43F69DE24C65 /* Build configuration list for PBXNativeTarget "OSX_Screen" */ = {
+		7CA4E51D357C46708FEFCBCD /* Build configuration list for PBXProject "ScreenHelper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6F5D81598ADE4227BF84B949 /* Debug */,
-				01E65CF1B8174F169AB1E849 /* Release */,
-				726C681FE8C94AB78C11A4F7 /* MinSizeRel */,
-				8F3039819B7B4E678C219632 /* RelWithDebInfo */,
+				4AFBBCB4BBD34C1E8EB04427 /* Debug */,
+				7F2622E99927473DBCC3B86B /* Release */,
+				37118DA820EB4641B6DE60F2 /* MinSizeRel */,
+				A9C51D97BA37404FAF8EFB36 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		C92F3DC60CB34499BCEB2BE6 /* Build configuration list for PBXProject "ScreenHelper" */ = {
+		AC4AA8DDED974E67BEDD33D6 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				809F823E28C5409087010FDE /* Debug */,
-				21171632CB1542E5B43E5E34 /* Release */,
-				01BC8B8F55B44BC7B2D1505B /* MinSizeRel */,
-				B8AB8D5266EB44509A046E25 /* RelWithDebInfo */,
+				54E6FD38CC6042C4A553B4FC /* Debug */,
+				EE8DE6266FDA4D33A6AB7DAF /* Release */,
+				0FBDB1591DD24A45B23765D8 /* MinSizeRel */,
+				0DC417340B88485988B2AF76 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		E0D2766088074B5685372AC9 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+		ACF0264E99834DE0A04AAC62 /* Build configuration list for PBXNativeTarget "screenHelperTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				47A25E07A7E446FE98069BA0 /* Debug */,
-				0683D1BD42E6429F891DD391 /* Release */,
-				5F0E3C3D654541A393721E46 /* MinSizeRel */,
-				622482F234764C7C897249BB /* RelWithDebInfo */,
+				9603232E59D74A9FB9027619 /* Debug */,
+				A3A10C8A81E944B4B675FAE3 /* Release */,
+				1FD4FB612CEE458AB0FBADC3 /* MinSizeRel */,
+				1352DC54073246EBBAFD5259 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		EC37CC5F9765441B8AE60D5A /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+		BC976948E26E4FAE87889E3E /* Build configuration list for PBXNativeTarget "OSX_Screen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				10E4A7F9FF5C4C3AACE4ECC9 /* Debug */,
-				2913FB3B70B64266BCD7BB3B /* Release */,
-				70317F4B85E544E6AFF789B8 /* MinSizeRel */,
-				BFE98987973B4BE18204CF46 /* RelWithDebInfo */,
+				D94C9BFC971B4CE5902C5EC7 /* Debug */,
+				DBAF5733DACE405A9B4B642D /* Release */,
+				E0D1037F1CA847F79AFCB266 /* MinSizeRel */,
+				2C9A79030A274DE2A94D1C78 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
