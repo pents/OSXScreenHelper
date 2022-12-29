@@ -5,22 +5,8 @@
 #include "ScreenHelper.h"
 #include "ScreenHelperExternal.h"
 
-ScreenWidthHeight* GetScreenResolution()
+inline Screenshot* GetScreenshotInner(CGImageRef image_ref)
 {
-    auto displayId = CGMainDisplayID();
-    auto width  = CGDisplayPixelsWide(displayId);
-    auto height = CGDisplayPixelsHigh(displayId);
-    
-    auto result = ScreenWidthHeight((int)width, (int)height);
-    
-    ScreenWidthHeight* ptr = &result;
-    
-    return ptr;
-}
-
-Screenshot* GetScreenshot()
-{
-    auto image_ref = CGDisplayCreateImage(CGMainDisplayID());
     if (image_ref != nullptr){
         auto width = CGImageGetWidth(image_ref);
         auto height = CGImageGetHeight(image_ref);
@@ -45,7 +31,37 @@ Screenshot* GetScreenshot()
     return nullptr;
 }
 
-bool SaveToFile(string* fileName, Screenshot* screenshot_ptr) {
+ScreenWidthHeight* GetScreenResolution()
+{
+    auto displayId = CGMainDisplayID();
+    auto width  = CGDisplayPixelsWide(displayId);
+    auto height = CGDisplayPixelsHigh(displayId);
+    
+    auto result = ScreenWidthHeight((int)width, (int)height);
+    
+    ScreenWidthHeight* ptr = &result;
+    
+    return ptr;
+}
+
+Screenshot* GetPartScreenshot(PartScreenshotParams* params)
+{
+    CGRect rect = CGRectMake(params->Left,
+                             params->Top,
+                             params->Right-params->Left,
+                             params->Bottom-params->Top);
+    auto image_ref = CGDisplayCreateImageForRect(CGMainDisplayID(), rect);
+    return GetScreenshotInner(image_ref);
+}
+
+Screenshot* GetScreenshot()
+{
+    auto image_ref = CGDisplayCreateImage(CGMainDisplayID());
+    return GetScreenshotInner(image_ref);
+}
+
+bool SaveToFile(string* fileName, Screenshot* screenshot_ptr)
+{
     
     if (screenshot_ptr != nullptr) {
         CFStringRef folderCFStr = CFStringCreateWithCString(0, fileName->data(), kCFStringEncodingUTF8);

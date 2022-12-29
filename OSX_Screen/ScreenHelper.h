@@ -43,10 +43,25 @@ public:
     }
 };
 
+struct PartScreenshotParams{
+public:
+    unsigned long Top;
+    unsigned long Left;
+    unsigned long Right;
+    unsigned long Bottom;
+    
+    PartScreenshotParams(unsigned long t, unsigned long l, unsigned long r, unsigned long b){
+        Top = t;
+        Left = l;
+        Right = r;
+        Bottom = b;
+    }
+}
+
 
 ScreenWidthHeight* GetScreenResolution();
 Screenshot* GetScreenshot();
+Screenshot* GetPartScreenshot(PartScreenshotParams* params);
 bool SaveToFile(string* fileName, Screenshot* screenshot_ptr);
-    
     
 #endif //HELPERLIB_SCREENHELPER_H
