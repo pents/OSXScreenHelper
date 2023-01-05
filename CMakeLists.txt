@@ -12,12 +12,8 @@ add_executable(screenHelperTest main.cpp)
 
 add_subdirectory(OSX_Screen)
 
+
 target_link_libraries(screenHelperTest
-        PUBLIC
-        "-framework CoreGraphics"
-        "-framework Foundation"
-        "-framework CoreServices"
-        "-framework ImageIO"
         PRIVATE
         OSX_Screen
         )

@@ -56,7 +56,7 @@ public:
         Right = r;
         Bottom = b;
     }
-}
+};
 
 
 ScreenWidthHeight* GetScreenResolution();

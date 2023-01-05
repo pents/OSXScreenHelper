@@ -14,11 +14,8 @@ inline Screenshot* GetScreenshotInner(CGImageRef image_ref)
         if (dataProvider != nullptr){
             auto cs_ref = CGImageGetColorSpace(image_ref);
             if (cs_ref != nullptr) {
-                
-                Screenshot* result = (Screenshot*)malloc(sizeof(Screenshot));
-                result->ImageData = image_ref;
-                result->Width = width;
-                result->Height = height;
+                                
+                Screenshot* result = new Screenshot(width, height, image_ref);
                 
                 CGColorSpaceRelease(cs_ref);
                 CGDataProviderRelease(dataProvider);
@@ -51,6 +48,7 @@ Screenshot* GetPartScreenshot(PartScreenshotParams* params)
                              params->Right-params->Left,
                              params->Bottom-params->Top);
     auto image_ref = CGDisplayCreateImageForRect(CGMainDisplayID(), rect);
+    delete params;
     return GetScreenshotInner(image_ref);
 }
 
