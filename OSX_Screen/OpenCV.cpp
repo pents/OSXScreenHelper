@@ -3,6 +3,7 @@
 //
 
 #include "OpenCV.h"
+#include "ScreenHelper.h"
 
 
 Mat* CGImageRefToMat(CGImageRef cgImage) {
@@ -30,7 +31,7 @@ Mat* CGImageRefToMat(CGImageRef cgImage) {
   return image;
 }
 
-cv::Point* Confidence(Mat* image, Mat* pattern, double sensetivity)
+FoundPoint* Confidence(Mat* image, Mat* pattern)
 {
     // Create a result matrix
     int result_cols =  image->cols - pattern->cols + 1;
@@ -51,28 +52,46 @@ cv::Point* Confidence(Mat* image, Mat* pattern, double sensetivity)
     cv::Point* maxLoc = new cv::Point();
 
     minMaxLoc(result, &minVal, &maxVal, minLoc, maxLoc, Mat());
-    
-    if (maxVal >= sensetivity){
-        return maxLoc;
-    }
-    
-    return nullptr;
+
+    return new FoundPoint(maxLoc, maxVal);
 }
 
+void NormalizeToScreenResolution(int cols, int rows, FoundPoint* point)
+{
+    ScreenWidthHeight* currentScreenRes = GetScreenResolution();
+    
+    point->X = point->X / (cols / currentScreenRes->Width);
+    point->Y = point->Y / (rows / currentScreenRes->Height);
+}
 
-FoundPoint* FindImageOnImage(CGImageRef image, CGImageRef pattern, double sensetivity)
+FoundPoint* FindImageOnImage(CGImageRef image, CGImageRef pattern)
 {
     Mat* matImage = CGImageRefToMat(image);
     Mat* matPattern = CGImageRefToMat(pattern);
     
-    cv::Point* foundObject = Confidence(matImage, matPattern, sensetivity);
+    FoundPoint* foundObject = Confidence(matImage, matPattern);
     
     delete matImage;
     delete matPattern;
     
-    if (foundObject == nullptr){
-        return new FoundPoint(foundObject);
-    }
-    return nullptr;
+    NormalizeToScreenResolution(matImage->cols, matImage->rows, foundObject);
+    
+    return foundObject;
 }
 
+double Similarity(Mat* image1, Mat* image2)
+{
+    // Calculate the difference image
+    Mat diff;
+    absdiff(*image1, *image2, diff);
+
+    // Calculate the number of pixels with a non-zero difference
+    int count = countNonZero(diff);
+
+    // Calculate the percentage of pixels with a non-zero difference
+    double percentage = (double)count / (double)(diff.total());
+    
+    diff.release();
+    
+    return percentage;
+}

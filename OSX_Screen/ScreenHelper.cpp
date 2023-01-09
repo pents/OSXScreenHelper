@@ -5,6 +5,8 @@
 #include "ScreenHelper.h"
 #include "ScreenHelperExternal.h"
 
+ScreenWidthHeight* CurrentScreenResolution = nullptr;
+
 inline Screenshot* GetScreenshotInner(CGImageRef image_ref)
 {
     if (image_ref != nullptr){
@@ -25,20 +27,20 @@ inline Screenshot* GetScreenshotInner(CGImageRef image_ref)
         }
     }
 
-    return nullptr;
+    throw new runtime_error("[GetScreenshotInner] Some error occured in taking screenshot - this may be because image_ref,dataProvider or cs_ref is null");
 }
 
 ScreenWidthHeight* GetScreenResolution()
 {
-    auto displayId = CGMainDisplayID();
-    auto width  = CGDisplayPixelsWide(displayId);
-    auto height = CGDisplayPixelsHigh(displayId);
-    
-    auto result = ScreenWidthHeight((int)width, (int)height);
-    
-    ScreenWidthHeight* ptr = &result;
-    
-    return ptr;
+    if (CurrentScreenResolution == nullptr)
+    {
+        auto displayId = CGMainDisplayID();
+        auto width  = CGDisplayPixelsWide(displayId);
+        auto height = CGDisplayPixelsHigh(displayId);
+        CurrentScreenResolution = new ScreenWidthHeight((int)width, (int)height);
+    }
+
+    return CurrentScreenResolution;
 }
 
 Screenshot* GetPartScreenshot(PartScreenshotParams* params)

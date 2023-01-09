@@ -13,19 +13,20 @@ using namespace std;
 using namespace cv;
 
 
-void FindImageOnImage(CGImageRef image, CGImageRef pattern);
-
-
 struct FoundPoint{
     public:
     int X;
     int Y;
-    FoundPoint(cv::Point* point){
+    double Confidence;
+    FoundPoint(cv::Point* point, double confidence){
         X = point->x;
         Y = point->y;
+        Confidence = confidence;
         delete point;
     }
 };
 
+double Similarity(Mat* image1, Mat* image2);
+FoundPoint* FindImageOnImage(CGImageRef image, CGImageRef pattern);
 
 #endif //HELPERLIB_SCREENHELPER_H

@@ -15,6 +15,7 @@
 using namespace std;
 
 
+// Resolution in pixels
 struct ScreenWidthHeight{
 public:
     int Width;
@@ -58,7 +59,7 @@ public:
     }
 };
 
-
+// gets main display resolution in pixels - and stores it for future use in global variable
 ScreenWidthHeight* GetScreenResolution();
 Screenshot* GetScreenshot();
 Screenshot* GetPartScreenshot(PartScreenshotParams* params);
