@@ -33,10 +33,10 @@ TARGETS += $(subst $(space),$(spaceplus),$(wildcard /opt/homebrew/Cellar/cmake/3
 TARGETS += $(subst $(space),$(spaceplus),$(wildcard /opt/homebrew/Cellar/cmake/3.25.0/share/cmake/Modules/Platform/Darwin-Initialize.cmake))
 TARGETS += $(subst $(space),$(spaceplus),$(wildcard /opt/homebrew/Cellar/cmake/3.25.0/share/cmake/Modules/Platform/Darwin.cmake))
 TARGETS += $(subst $(space),$(spaceplus),$(wildcard /opt/homebrew/Cellar/cmake/3.25.0/share/cmake/Modules/Platform/UnixPaths.cmake))
-TARGETS += $(subst $(space),$(spaceplus),$(wildcard /opt/homebrew/lib/cmake/opencv4/OpenCVConfig-version.cmake))
-TARGETS += $(subst $(space),$(spaceplus),$(wildcard /opt/homebrew/lib/cmake/opencv4/OpenCVConfig.cmake))
-TARGETS += $(subst $(space),$(spaceplus),$(wildcard /opt/homebrew/lib/cmake/opencv4/OpenCVModules-release.cmake))
-TARGETS += $(subst $(space),$(spaceplus),$(wildcard /opt/homebrew/lib/cmake/opencv4/OpenCVModules.cmake))
+TARGETS += $(subst $(space),$(spaceplus),$(wildcard /usr/local/lib/cmake/opencv4/OpenCVConfig-version.cmake))
+TARGETS += $(subst $(space),$(spaceplus),$(wildcard /usr/local/lib/cmake/opencv4/OpenCVConfig.cmake))
+TARGETS += $(subst $(space),$(spaceplus),$(wildcard /usr/local/lib/cmake/opencv4/OpenCVModules-release.cmake))
+TARGETS += $(subst $(space),$(spaceplus),$(wildcard /usr/local/lib/cmake/opencv4/OpenCVModules.cmake))
 
 /Users/dmitdavydov/CLionProjects/HelperLib/CMakeFiles/cmake.check_cache: $(TARGETS)
 	/opt/homebrew/Cellar/cmake/3.25.0/bin/cmake -H/Users/dmitdavydov/CLionProjects/HelperLib -B/Users/dmitdavydov/CLionProjects/HelperLib

@@ -26,7 +26,7 @@ struct FoundPoint{
     }
 };
 
-double Similarity(Mat* image1, Mat* image2);
+double Similarity(CGImageRef image1, CGImageRef image2);
 FoundPoint* FindImageOnImage(CGImageRef image, CGImageRef pattern);
 
 #endif //HELPERLIB_SCREENHELPER_H

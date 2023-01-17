@@ -79,11 +79,13 @@ FoundPoint* FindImageOnImage(CGImageRef image, CGImageRef pattern)
     return foundObject;
 }
 
-double Similarity(Mat* image1, Mat* image2)
+double Similarity(CGImageRef image1, CGImageRef image2)
 {
+    Mat* image1_mat = CGImageRefToMat(image1);
+    Mat* image2_mat = CGImageRefToMat(image2);
     // Calculate the difference image
     Mat diff;
-    absdiff(*image1, *image2, diff);
+    absdiff(*image1_mat, *image2_mat, diff);
 
     // Calculate the number of pixels with a non-zero difference
     int count = countNonZero(diff);
@@ -92,6 +94,12 @@ double Similarity(Mat* image1, Mat* image2)
     double percentage = (double)count / (double)(diff.total());
     
     diff.release();
+    
+    image1_mat->release();
+    image2_mat->release();
+    
+    CGImageRelease(image1);
+    CGImageRelease(image2);
     
     return percentage;
 }
