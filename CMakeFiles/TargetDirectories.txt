@@ -1,4 +1,0 @@
-/Users/dmitdavydov/CLionProjects/HelperLib/CMakeFiles/screenHelperTest.dir
-/Users/dmitdavydov/CLionProjects/HelperLib/CMakeFiles/ALL_BUILD.dir
-/Users/dmitdavydov/CLionProjects/HelperLib/CMakeFiles/ZERO_CHECK.dir
-/Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/CMakeFiles/OSX_Screen.dir

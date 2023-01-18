@@ -36,3 +36,11 @@ cmake-build-debug/
 bin/
 
 ScreenHelper.xcodeproj/
+
+Makefile
+
+CMakeCache.txt
+
+CMakeFiles/
+
+CMakeScripts/

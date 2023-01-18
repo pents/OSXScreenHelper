@@ -5,16 +5,15 @@
 //  Created by Davydov Dmitriy on 13.01.2023.
 //
 
-#include <stdio.h>
-#include "ScreenHelper.h"
-#include "OpenCV.h"
 #include "ScreenHelperExternal.h"
 
 
 ScreenWidthHeightExternal GetScreenResolutionExternal()
 {
     auto data = GetScreenResolution();
-    auto result = ScreenWidthHeightExternal(data->Width, data->Height);
+    auto result = ScreenWidthHeightExternal();
+    result.Height = data->Height;
+    result.Width = data->Width;
     delete data;
     return result;
 }
