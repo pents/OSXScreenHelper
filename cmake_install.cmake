@@ -1,4 +1,4 @@
-# Install script for directory: /Users/dmitdavydov/CLionProjects/HelperLib
+# Install script for directory: /Users/pent/Projects/CPlus/OSXScreenHelper
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -37,11 +37,11 @@ if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/objdump")
 endif()
 
-set(CMAKE_BINARY_DIR "/Users/dmitdavydov/CLionProjects/HelperLib")
+set(CMAKE_BINARY_DIR "/Users/pent/Projects/CPlus/OSXScreenHelper")
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/dmitdavydov/CLionProjects/HelperLib/OSX_Screen/cmake_install.cmake")
+  include("/Users/pent/Projects/CPlus/OSXScreenHelper/OSX_Screen/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -52,5 +52,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/dmitdavydov/CLionProjects/HelperLib/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/pent/Projects/CPlus/OSXScreenHelper/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -44,3 +44,9 @@ CMakeCache.txt
 CMakeFiles/
 
 CMakeScripts/
+
+build/
+
+.DS_Store
+
+OSX_Screen/cmake_install.cmake
