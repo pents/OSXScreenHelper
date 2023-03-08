@@ -2,8 +2,8 @@
 // Created by Davydov Dmitriy on 15.11.2022.
 //
 
-#include "OpenCV.h"
-#include "ScreenHelper.h"
+#include "Headers/OpenCV.h"
+#include "Headers/ScreenHelper.h"
 
 
 Mat* CGImageRefToMat(CGImageRef cgImage) {
@@ -15,7 +15,7 @@ Mat* CGImageRefToMat(CGImageRef cgImage) {
   CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
 
   // Create a bitmap context
-  CGContextRef bitmapContext = CGBitmapContextCreate(NULL, width, height, 8, width * 4, colorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
+  CGContextRef bitmapContext = CGBitmapContextCreate(nullptr, width, height, 8, width * 4, colorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
 
   // Draw the CGImageRef onto the bitmap context
   CGRect rect = CGRectMake(0, 0, width, height);
@@ -48,8 +48,8 @@ FoundPoint* Confidence(Mat* image, Mat* pattern)
     // Localize the highest value
     double minVal;
     double maxVal;
-    cv::Point* minLoc = new cv::Point();
-    cv::Point* maxLoc = new cv::Point();
+    auto* minLoc = new cv::Point();
+    auto* maxLoc = new cv::Point();
 
     minMaxLoc(result, &minVal, &maxVal, minLoc, maxLoc, Mat());
 

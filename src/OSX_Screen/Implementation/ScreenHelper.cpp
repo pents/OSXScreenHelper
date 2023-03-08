@@ -2,8 +2,8 @@
 // Created by Davydov Dmitriy on 15.11.2022.
 //
 
-#include "ScreenHelper.h"
-#include "ScreenHelperExternal.h"
+#include "Headers/ScreenHelper.h"
+#include "Headers/ScreenHelperExternal.h"
 
 ScreenWidthHeight* CurrentScreenResolution = nullptr;
 
@@ -17,7 +17,7 @@ inline Screenshot* GetScreenshotInner(CGImageRef image_ref)
             auto cs_ref = CGImageGetColorSpace(image_ref);
             if (cs_ref != nullptr) {
                                 
-                Screenshot* result = new Screenshot(width, height, image_ref);
+                auto* result = new Screenshot(width, height, image_ref);
                 
                 CGColorSpaceRelease(cs_ref);
                 CGDataProviderRelease(dataProvider);
@@ -69,12 +69,12 @@ bool SaveToFile(string* fileName, Screenshot* screenshot_ptr)
         
         if (url_ref != nullptr) {
             
-            CGImageDestinationRef destination_ref = CGImageDestinationCreateWithURL(url_ref, kUTTypePNG, 1, NULL);
+            CGImageDestinationRef destination_ref = CGImageDestinationCreateWithURL(url_ref, kUTTypePNG, 1, nullptr);
             
             if (destination_ref != nullptr) {
                 
                 auto test = screenshot_ptr->ImageData;
-                CGImageDestinationAddImage(destination_ref, test, NULL);
+                CGImageDestinationAddImage(destination_ref, test, nullptr);
                 CGImageDestinationFinalize(destination_ref);
                 CFRelease(destination_ref);
             }

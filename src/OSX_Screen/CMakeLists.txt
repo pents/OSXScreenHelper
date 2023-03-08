@@ -17,7 +17,7 @@ include_directories (
         ${OpenCV_INCLUDE_DIRS}
 )
 
-message(---------------------------------------CMAKE_CURRENT_LIST_DIR: ${CMAKE_CURRENT_LIST_DIR})
+message(---------------------------------------CMAKE_CURRENT_LIST_DIR: .)
 message(---------------------------------------OpenCV_LIBS: ${OpenCV_LIBS})
 message(---------------------------------------OpenCV_INCLUDE_DIRS: ${OpenCV_INCLUDE_DIRS})
 
@@ -35,16 +35,16 @@ target_link_libraries(
 
 target_sources(OSX_Screen
         PUBLIC
-        ${CMAKE_CURRENT_LIST_DIR}/ScreenHelper.h
-        ${CMAKE_CURRENT_LIST_DIR}/ScreenHelperExternal.h
-        ${CMAKE_CURRENT_LIST_DIR}/OpenCV.h
-        ScreenHelper.cpp
-        OpenCV.cpp
-        ScreenHelperExternal.cpp
+        Headers/ScreenHelper.h
+        Headers/ScreenHelperExternal.h
+        Headers/OpenCV.h
+        Implementation/ScreenHelper.cpp
+        Implementation/OpenCV.cpp
+        Implementation/ScreenHelperExternal.cpp
         )
 
 target_include_directories(OSX_Screen
         PUBLIC
-        ${CMAKE_CURRENT_LIST_DIR}
+        .
         )
 

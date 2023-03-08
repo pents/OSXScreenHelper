@@ -49,4 +49,12 @@ build/
 
 .DS_Store
 
-OSX_Screen/cmake_install.cmake
+src/OSX_Screen/cmake_install.cmake
+
+.idea/
+
+Testing/
+
+.cmake/
+
+cmake_install.cmake

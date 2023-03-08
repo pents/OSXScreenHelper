@@ -5,7 +5,7 @@
 //  Created by Davydov Dmitriy on 13.01.2023.
 //
 
-#include "ScreenHelperExternal.h"
+#include "Headers/ScreenHelperExternal.h"
 
 
 ScreenWidthHeightExternal GetScreenResolutionExternal()
