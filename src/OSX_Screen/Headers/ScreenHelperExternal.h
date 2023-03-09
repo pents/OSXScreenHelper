@@ -10,29 +10,22 @@
 extern "C" {
 
     struct ScreenWidthHeightExternal{
-        int Width;
-        int Height;        
+        unsigned int Width;
+        unsigned int Height;
     };
 
     struct ScreenshotExternal{
-    public:
-        int Width;
-        int Height;
-        CGImageRef ImageData;
-        Screenshot(int W, int H, CGImageRef data){
-            Width = W;
-            Height = H;
-            ImageData = data;
-        }
-
-        ~Screenshot(){
-            if (ImageData != nullptr){
-                CGImageRelease(ImageData);
-            }
-        }
+        unsigned int Width;
+        unsigned int Height;
+        unsigned char* ImageData;
     };
 
 ScreenWidthHeightExternal GetScreenResolutionExternal();
+ScreenshotExternal* GetScreenshotExternal();
+
+
+void ReleaseScreenShot(ScreenshotExternal* screenshotRef);
+
 }
 
-#endif //HELPERLIB_SCREENHELPER_H
+#endif //HELPERLIB_SCREENHELPEREXTERNAL_H

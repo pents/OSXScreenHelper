@@ -1,5 +1,5 @@
 set(CMAKE_OSX_ARCHITECTURES arm64 CACHE INTERNAL "" FORCE)
-set(CMAKE_BUILD_TYPE Release)
+set(CMAKE_BUILD_TYPE ${CMAKE_BUILD_TYPE})
 cmake_policy(SET CMP0048 NEW)
 
 
@@ -13,7 +13,7 @@ cmake_minimum_required(VERSION 3.23)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(screenHelperTest src/Main/main.cpp)
+add_executable(screenHelperTest src/main.cpp)
 
 IF (APPLE)
     message ("Apple detected")
@@ -22,7 +22,7 @@ IF (APPLE)
 
     target_link_libraries(screenHelperTest
             PRIVATE
-            src/OSX_Screen
+            OSX_Screen
             )
 
 ELSE()

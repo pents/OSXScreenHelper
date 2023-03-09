@@ -64,7 +64,7 @@ bool SaveToFile(string* fileName, Screenshot* screenshot_ptr)
 {
     
     if (screenshot_ptr != nullptr) {
-        CFStringRef folderCFStr = CFStringCreateWithCString(0, fileName->data(), kCFStringEncodingUTF8);
+        CFStringRef folderCFStr = CFStringCreateWithCString(nullptr, fileName->data(), kCFStringEncodingUTF8);
         CFURLRef url_ref = CFURLCreateWithFileSystemPath(kCFAllocatorDefault, folderCFStr, kCFURLPOSIXPathStyle, false);
         
         if (url_ref != nullptr) {
