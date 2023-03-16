@@ -23,5 +23,7 @@ int main()
 
     auto windowName = GetCurrentActiveWindowName();
 
+    auto test = windowName->c_str();
+
     return 0;
 }

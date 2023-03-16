@@ -108,12 +108,12 @@ string* GetCurrentActiveWindowName()
         if (title != nullptr){
             string delimiter = " - ";
             result = ConcatenateStrings(owner, title, delimiter.c_str());
-            CFRelease(title);
+            //CFRelease(title);
         }else{
             result = CFStringToStdString(owner);
         }
 
-        CFRelease(owner);
+        //CFRelease(owner);
         break;
     }
 
