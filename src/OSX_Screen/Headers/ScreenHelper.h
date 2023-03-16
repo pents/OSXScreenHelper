@@ -5,12 +5,13 @@
 #ifndef HELPERLIB_SCREENHELPER_H
 #define HELPERLIB_SCREENHELPER_H
 
-#include "inttypes.h"
+#include <cinttypes>
 #include <ImageIO/ImageIO.h>
 #include <string>
 #include <CoreGraphics/CGDisplayConfiguration.h>
 #include <CoreServices/CoreServices.h>
 #include <ApplicationServices/ApplicationServices.h>
+#include "Common/Headers/CommonFunctions.h"
 
 using namespace std;
 
@@ -63,6 +64,8 @@ public:
 ScreenWidthHeight* GetScreenResolution();
 Screenshot* GetScreenshot();
 Screenshot* GetPartScreenshot(PartScreenshotParams* params);
+
 bool SaveToFile(string* fileName, Screenshot* screenshot_ptr);
+string* GetCurrentActiveWindowName();
     
 #endif //HELPERLIB_SCREENHELPER_H

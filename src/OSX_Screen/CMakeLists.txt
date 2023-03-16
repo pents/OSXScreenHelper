@@ -48,3 +48,5 @@ target_include_directories(OSX_Screen
         .
         )
 
+add_subdirectory(Common)
+

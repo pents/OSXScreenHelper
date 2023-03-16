@@ -33,12 +33,12 @@ inline unsigned char* byteArrayFromCGImage(CGImageRef image) {
     return byteArray;
 }
 
-ScreenWidthHeightExternal GetScreenResolutionExternal()
-{
+ScreenWidthHeightExternal* GetScreenResolutionExternal(){
+
     auto data = GetScreenResolution();
-    auto result = ScreenWidthHeightExternal();
-    result.Height = data->Height;
-    result.Width = data->Width;
+    auto result = new ScreenWidthHeightExternal();
+    result->Height = data->Height;
+    result->Width = data->Width;
     delete data;
     return result;
 }
@@ -55,7 +55,19 @@ ScreenshotExternal* GetScreenshotExternal(){
     return result;
 }
 
+const char* GetCurrentActiveWindowNameExternal(){
+    return GetCurrentActiveWindowName()->c_str();
+}
+
+void ReleaseScreenWidthHeight(ScreenWidthHeightExternal* screenRef){
+    delete screenRef;
+}
+
 void ReleaseScreenShot(ScreenshotExternal* screenRef){
     delete[] screenRef->ImageData;
     delete screenRef;
+}
+
+void ReleaseString(const char* strRef){
+    delete[] strRef;
 }

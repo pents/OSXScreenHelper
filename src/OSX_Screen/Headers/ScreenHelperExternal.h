@@ -20,11 +20,14 @@ extern "C" {
         unsigned char* ImageData;
     };
 
-ScreenWidthHeightExternal GetScreenResolutionExternal();
+ScreenWidthHeightExternal* GetScreenResolutionExternal();
 ScreenshotExternal* GetScreenshotExternal();
+ScreenshotExternal* GetPartScreenshotExternal(unsigned int top, unsigned int left, unsigned int right, unsigned int bottom);
+const char* GetCurrentActiveWindowNameExternal();
 
-
-void ReleaseScreenShot(ScreenshotExternal* screenshotRef);
+void ReleaseScreenWidthHeight(ScreenWidthHeightExternal* screenRef);
+void ReleaseScreenShot(ScreenshotExternal* screenshotsRef);
+void ReleaseString(const char* strRef);
 
 }
 

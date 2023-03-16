@@ -5,13 +5,13 @@
 
 int main()
 {
-    std::string testFileName ="/Users/dmitdavydov/Desktop/screencap.png";
+    /*std::string testFileName ="/Users/dmitdavydov/Desktop/screencap.png";
     std::string* testFileNamePtr = &testFileName;
     auto screenRes = GetScreenResolution();
     printf("Screen resolution: %dx%d\n", screenRes->Width, screenRes->Height);
 
     auto screenshot = GetScreenshot();
-    
+
     auto success = SaveToFile(testFileNamePtr, screenshot);
 
     if (success){
@@ -19,7 +19,9 @@ int main()
     }
     else{
         printf("Error while saving image");
-    }
+    }*/
+
+    auto windowName = GetCurrentActiveWindowName();
 
     return 0;
 }

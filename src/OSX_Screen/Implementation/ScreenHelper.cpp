@@ -3,7 +3,6 @@
 //
 
 #include "Headers/ScreenHelper.h"
-#include "Headers/ScreenHelperExternal.h"
 
 ScreenWidthHeight* CurrentScreenResolution = nullptr;
 
@@ -62,7 +61,6 @@ Screenshot* GetScreenshot()
 
 bool SaveToFile(string* fileName, Screenshot* screenshot_ptr)
 {
-    
     if (screenshot_ptr != nullptr) {
         CFStringRef folderCFStr = CFStringCreateWithCString(nullptr, fileName->data(), kCFStringEncodingUTF8);
         CFURLRef url_ref = CFURLCreateWithFileSystemPath(kCFAllocatorDefault, folderCFStr, kCFURLPOSIXPathStyle, false);
@@ -83,4 +81,43 @@ bool SaveToFile(string* fileName, Screenshot* screenshot_ptr)
             CFRelease(folderCFStr);
         }
     }
+}
+
+string* GetCurrentActiveWindowName()
+{
+    // Get a list of all open windows
+    CFArrayRef windowList = CGWindowListCopyWindowInfo(kCGWindowListOptionOnScreenOnly | kCGWindowListExcludeDesktopElements, kCGNullWindowID);
+    string* result = nullptr;
+    // Loop through the windows to find the currently active one
+    for (CFIndex i = 0; i < CFArrayGetCount(windowList); i++) {
+        auto windowInfo = (CFDictionaryRef)CFArrayGetValueAtIndex(windowList, i);
+
+        // Check if the window is the currently active one
+        auto isTransparent = (CFBooleanRef)CFDictionaryGetValue(windowInfo, kCGWindowAlpha);
+        if (CFBooleanGetValue(isTransparent))
+            continue;
+
+        auto isMain = (CFBooleanRef)CFDictionaryGetValue(windowInfo, kCGWindowLayer);
+        if (!CFBooleanGetValue(isMain))
+            continue;
+
+        // Get the title of the active window
+        auto title = (CFStringRef)CFDictionaryGetValue(windowInfo, kCGWindowName);
+        auto owner = (CFStringRef)CFDictionaryGetValue(windowInfo, kCGWindowOwnerName);
+
+        if (title != nullptr){
+            string delimiter = " - ";
+            result = ConcatenateStrings(owner, title, delimiter.c_str());
+            CFRelease(title);
+        }else{
+            result = CFStringToStdString(owner);
+        }
+
+        CFRelease(owner);
+        break;
+    }
+
+    // Release the window list
+    CFRelease(windowList);
+    return result;
 }
