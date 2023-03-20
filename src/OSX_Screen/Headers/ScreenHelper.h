@@ -65,7 +65,7 @@ ScreenWidthHeight* GetScreenResolution();
 Screenshot* GetScreenshot();
 Screenshot* GetPartScreenshot(PartScreenshotParams* params);
 
-bool SaveToFile(string* fileName, Screenshot* screenshot_ptr);
+bool SaveToFile(CGImageRef image, const std::string& filePath);
 string* GetCurrentActiveWindowName();
     
 #endif //HELPERLIB_SCREENHELPER_H

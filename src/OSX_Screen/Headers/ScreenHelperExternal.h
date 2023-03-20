@@ -18,6 +18,7 @@ extern "C" {
         unsigned int Width;
         unsigned int Height;
         unsigned char* ImageData;
+        int DataLength;
     };
 
 ScreenWidthHeightExternal* GetScreenResolutionExternal();
@@ -26,7 +27,7 @@ ScreenshotExternal* GetPartScreenshotExternal(unsigned int top, unsigned int lef
 const char* GetCurrentActiveWindowNameExternal();
 
 void ReleaseScreenWidthHeight(ScreenWidthHeightExternal* screenRef);
-void ReleaseScreenShot(ScreenshotExternal* screenshotsRef);
+void ReleaseScreenshot(ScreenshotExternal* screenshotsRef);
 void ReleaseString(const char* strRef);
 
 }

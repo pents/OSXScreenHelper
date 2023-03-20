@@ -11,19 +11,8 @@ inline Screenshot* GetScreenshotInner(CGImageRef image_ref)
     if (image_ref != nullptr){
         auto width = CGImageGetWidth(image_ref);
         auto height = CGImageGetHeight(image_ref);
-        auto dataProvider = CGImageGetDataProvider(image_ref);
-        if (dataProvider != nullptr){
-            auto cs_ref = CGImageGetColorSpace(image_ref);
-            if (cs_ref != nullptr) {
-                                
-                auto* result = new Screenshot(width, height, image_ref);
-                
-                CGColorSpaceRelease(cs_ref);
-                CGDataProviderRelease(dataProvider);
-                return result;
-            }
-            CGDataProviderRelease(dataProvider);
-        }
+        auto* result = new Screenshot(width, height, image_ref);
+        return result;
     }
 
     throw new runtime_error("[GetScreenshotInner] Some error occured in taking screenshot - this may be because image_ref,dataProvider or cs_ref is null");
@@ -59,29 +48,44 @@ Screenshot* GetScreenshot()
     return GetScreenshotInner(image_ref);
 }
 
-bool SaveToFile(string* fileName, Screenshot* screenshot_ptr)
-{
-    if (screenshot_ptr != nullptr) {
-        CFStringRef folderCFStr = CFStringCreateWithCString(nullptr, fileName->data(), kCFStringEncodingUTF8);
-        CFURLRef url_ref = CFURLCreateWithFileSystemPath(kCFAllocatorDefault, folderCFStr, kCFURLPOSIXPathStyle, false);
-        
-        if (url_ref != nullptr) {
-            
-            CGImageDestinationRef destination_ref = CGImageDestinationCreateWithURL(url_ref, kUTTypePNG, 1, nullptr);
-            
-            if (destination_ref != nullptr) {
-                
-                auto test = screenshot_ptr->ImageData;
-                CGImageDestinationAddImage(destination_ref, test, nullptr);
-                CGImageDestinationFinalize(destination_ref);
-                CFRelease(destination_ref);
-            }
+bool SaveToFile(CGImageRef image, const std::string& filePath) {
+    if (image == nullptr) {
 
-            CFRelease(url_ref);
-            CFRelease(folderCFStr);
-        }
+        return false;
     }
+
+    CFURLRef url = CFURLCreateFromFileSystemRepresentation(kCFAllocatorDefault,
+                                                           (const UInt8*)filePath.c_str(),
+                                                           filePath.length(),
+                                                           false);
+
+    if (url == nullptr) {
+        //std::cerr << "Failed to create CFURLRef from file path" << std::endl;
+        return false;
+    }
+
+    CGImageDestinationRef destination = CGImageDestinationCreateWithURL(url, kUTTypePNG, 1, nullptr);
+
+    if (destination == nullptr) {
+        //std::cerr << "Failed to create CGImageDestinationRef" << std::endl;
+        CFRelease(url);
+        return false;
+    }
+
+    CGImageDestinationAddImage(destination, image, nullptr);
+
+    bool result = CGImageDestinationFinalize(destination);
+
+    if (!result) {
+        //std::cerr << "Failed to save the image" << std::endl;
+    }
+
+    CFRelease(destination);
+    CFRelease(url);
+
+    return result;
 }
+
 
 string* GetCurrentActiveWindowName()
 {

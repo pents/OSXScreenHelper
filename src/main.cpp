@@ -21,9 +21,17 @@ int main()
         printf("Error while saving image");
     }*/
 
-    auto windowName = GetCurrentActiveWindowName();
+ //   auto windowName = GetCurrentActiveWindowName();
 
-    auto test = windowName->c_str();
+ //   auto test = windowName->c_str();
+
+    auto params = new PartScreenshotParams(200, 400, 600, 500);
+    auto scr = GetPartScreenshot(params);
+
+    SaveToFile(scr->ImageData, "/Users/pent/Desktop/testScreenshot.png");
+
+    CGImageRelease(scr->ImageData);
+    delete scr;
 
     return 0;
 }

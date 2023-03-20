@@ -7,11 +7,20 @@
 
 #include "Headers/ScreenHelperExternal.h"
 
+struct ImageBytes{
+    ImageBytes(unsigned char* data, int count){
+        Data = data;
+        DataCount = count;
+    }
 
-inline unsigned char* byteArrayFromCGImage(CGImageRef image) {
+    unsigned char* Data;
+    int DataCount;
+};
+
+inline ImageBytes byteArrayFromCGImage(unsigned long width, unsigned long height, CGImageRef image) {
     // Get the width and height of the image
-    size_t width = CGImageGetWidth(image);
-    size_t height = CGImageGetHeight(image);
+//    size_t width = CGImageGetWidth(image);
+//    size_t height = CGImageGetHeight(image);
 
     // Get a pointer to the raw image data
     CGDataProviderRef provider = CGImageGetDataProvider(image);
@@ -30,7 +39,25 @@ inline unsigned char* byteArrayFromCGImage(CGImageRef image) {
     // Clean up
     CFRelease(data);
 
-    return byteArray;
+    return {byteArray, (int)byteCount};
+}
+
+inline ScreenshotExternal* GetScreenshotExternal(Screenshot* screenshot){
+    auto* result = new ScreenshotExternal();
+
+    auto imageData = byteArrayFromCGImage(
+            screenshot->Width,
+            screenshot->Height,
+            screenshot->ImageData);
+
+    result->Height = screenshot->Height;
+    result->Width = screenshot->Width;
+    result->ImageData = imageData.Data;
+    result->DataLength = imageData.DataCount;
+    CGImageRelease(screenshot->ImageData);
+    delete screenshot;
+
+    return result;
 }
 
 ScreenWidthHeightExternal* GetScreenResolutionExternal(){
@@ -45,14 +72,14 @@ ScreenWidthHeightExternal* GetScreenResolutionExternal(){
 
 ScreenshotExternal* GetScreenshotExternal(){
     auto* screenshot = GetScreenshot();
+    return GetScreenshotExternal(screenshot);
+}
 
-    auto* result = new ScreenshotExternal();
-
-    result->Height = screenshot->Height;
-    result->Width = screenshot->Width;
-    result->ImageData = byteArrayFromCGImage(screenshot->ImageData);
-
-    return result;
+ScreenshotExternal* GetPartScreenshotExternal(unsigned int top, unsigned int left, unsigned int right, unsigned int bottom){
+    auto params = new PartScreenshotParams(top, left, right, bottom);
+    auto* screenshot = GetPartScreenshot(params);
+    delete params;
+    return GetScreenshotExternal(screenshot);
 }
 
 const char* GetCurrentActiveWindowNameExternal(){
@@ -63,7 +90,7 @@ void ReleaseScreenWidthHeight(ScreenWidthHeightExternal* screenRef){
     delete screenRef;
 }
 
-void ReleaseScreenShot(ScreenshotExternal* screenRef){
+void ReleaseScreenshot(ScreenshotExternal* screenRef){
     delete[] screenRef->ImageData;
     delete screenRef;
 }
