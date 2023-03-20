@@ -25,9 +25,9 @@ int main()
 
  //   auto test = windowName->c_str();
 
-    auto params = new PartScreenshotParams(200, 400, 600, 500);
+    auto* params = new PartScreenshotParams(200, 400, 600, 500);
     auto scr = GetPartScreenshot(params);
-
+    delete params;
     SaveToFile(scr->ImageData, "/Users/pent/Desktop/testScreenshot.png");
 
     CGImageRelease(scr->ImageData);

@@ -76,9 +76,8 @@ ScreenshotExternal* GetScreenshotExternal(){
 }
 
 ScreenshotExternal* GetPartScreenshotExternal(unsigned int top, unsigned int left, unsigned int right, unsigned int bottom){
-    auto params = new PartScreenshotParams(top, left, right, bottom);
+    auto* params = new PartScreenshotParams(top, left, right, bottom);
     auto* screenshot = GetPartScreenshot(params);
-    delete params;
     return GetScreenshotExternal(screenshot);
 }
 
