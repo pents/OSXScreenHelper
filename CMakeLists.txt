@@ -13,21 +13,6 @@ cmake_minimum_required(VERSION 3.23)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(screenHelperTest src/main.cpp)
-
-IF (APPLE)
-    message ("Apple detected")
-    add_subdirectory(src/OSX_Screen)
-
-
-    target_link_libraries(screenHelperTest
-            PRIVATE
-            OSX_Screen
-            )
-
-ELSE()
-
-# TODO: Place win library here
-        
-ENDIF()
+add_subdirectory(src)
+add_subdirectory(tests)
 

@@ -1,6 +1,6 @@
 #include <cstdio>
 #include <string>
-#include "OSX_Screen/Headers/ScreenHelper.h"
+#include "Headers/ScreenHelper.h"
 
 
 int main()

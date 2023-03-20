@@ -2,10 +2,10 @@ add_library(OSX_Screen SHARED "")
 message(-------------------CMAKE_OSX_ARCHITECTURES: ${CMAKE_OSX_ARCHITECTURES})
 
 IF (CMAKE_OSX_ARCHITECTURES STREQUAL "x86_64")
-    set(CMAKE_PREFIX_PATH "/usr/local")
+    SET(CMAKE_PREFIX_PATH "/usr/local")
     SET(OpenCV_DIR "/usr/local/lib/cmake/opencv4")
 ELSE()
-    set(CMAKE_PREFIX_PATH "/opt/homebrew")
+    SET(CMAKE_PREFIX_PATH "/opt/homebrew")
     SET(OpenCV_DIR "/opt/homebrew/opt/opencv")
 ENDIF()
 

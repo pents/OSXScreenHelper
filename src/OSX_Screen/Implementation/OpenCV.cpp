@@ -71,10 +71,10 @@ FoundPoint* FindImageOnImage(CGImageRef image, CGImageRef pattern)
     
     FoundPoint* foundObject = Confidence(matImage, matPattern);
     
+    NormalizeToScreenResolution(matImage->cols, matImage->rows, foundObject);
+
     delete matImage;
     delete matPattern;
-    
-    NormalizeToScreenResolution(matImage->cols, matImage->rows, foundObject);
     
     return foundObject;
 }
