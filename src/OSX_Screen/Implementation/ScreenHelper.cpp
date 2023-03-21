@@ -2,7 +2,7 @@
 // Created by Davydov Dmitriy on 15.11.2022.
 //
 
-#include "Headers/ScreenHelper.h"
+#include "ScreenHelper.h"
 
 ScreenWidthHeight* CurrentScreenResolution = nullptr;
 

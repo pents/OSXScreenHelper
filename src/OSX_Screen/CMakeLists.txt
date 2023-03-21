@@ -35,17 +35,14 @@ target_link_libraries(
 
 target_sources(OSX_Screen
         PUBLIC
-        Headers/ScreenHelper.h
-        Headers/ScreenHelperExternal.h
-        Headers/OpenCV.h
-        Implementation/ScreenHelper.cpp
         Implementation/OpenCV.cpp
+        Implementation/ScreenHelper.cpp
         Implementation/ScreenHelperExternal.cpp
         )
 
 target_include_directories(OSX_Screen
         PUBLIC
-        .
+        Headers
         )
 
 add_subdirectory(Common)

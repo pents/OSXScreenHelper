@@ -1,6 +1,6 @@
 #include <cstdio>
 #include <string>
-#include "Headers/ScreenHelper.h"
+#include "ScreenHelper.h"
 
 
 int main()

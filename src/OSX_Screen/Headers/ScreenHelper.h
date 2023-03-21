@@ -11,7 +11,7 @@
 #include <CoreGraphics/CGDisplayConfiguration.h>
 #include <CoreServices/CoreServices.h>
 #include <ApplicationServices/ApplicationServices.h>
-#include "Common/Headers/CommonFunctions.h"
+#include "CommonFunctions.h"
 
 using namespace std;
 

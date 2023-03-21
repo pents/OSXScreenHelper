@@ -2,8 +2,8 @@
 // Created by Davydov Dmitriy on 15.11.2022.
 //
 
-#include "Headers/OpenCV.h"
-#include "Headers/ScreenHelper.h"
+#include "OpenCV.h"
+#include "ScreenHelper.h"
 
 
 Mat* CGImageRefToMat(CGImageRef cgImage) {

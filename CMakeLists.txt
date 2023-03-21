@@ -1,7 +1,8 @@
+message("Current build for: ${CMAKE_BUILD_TYPE}")
 set(CMAKE_OSX_ARCHITECTURES arm64 CACHE INTERNAL "" FORCE)
 set(CMAKE_BUILD_TYPE ${CMAKE_BUILD_TYPE})
-cmake_policy(SET CMP0048 NEW)
 
+cmake_policy(SET CMP0048 NEW)
 
 project(ScreenHelper VERSION 1.0.0 DESCRIPTION "OSX Library for screen actions")
 
@@ -15,4 +16,5 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_subdirectory(src)
 add_subdirectory(tests)
+
 

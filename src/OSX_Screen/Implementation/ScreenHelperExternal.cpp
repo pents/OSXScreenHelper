@@ -5,7 +5,7 @@
 //  Created by Davydov Dmitriy on 13.01.2023.
 //
 
-#include "Headers/ScreenHelperExternal.h"
+#include "ScreenHelperExternal.h"
 
 struct ImageBytes{
     ImageBytes(unsigned char* data, int count){

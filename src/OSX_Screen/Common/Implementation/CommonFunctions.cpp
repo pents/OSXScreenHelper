@@ -1,8 +1,7 @@
 //
 // Created by Dmitry on 10.03.2023.
 //
-
-#include "Common/Headers/CommonFunctions.h"
+#include "CommonFunctions.h"
 
 const char* GetInnerCStr(CFStringRef cfString){
     if (cfString == nullptr){
