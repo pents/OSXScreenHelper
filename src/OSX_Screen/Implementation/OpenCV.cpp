@@ -5,101 +5,87 @@
 #include "OpenCV.h"
 #include "ScreenHelper.h"
 
+cv::Mat convertToMat(CGImageRef image) {
+    size_t width = CGImageGetWidth(image);
+    size_t height = CGImageGetHeight(image);
+    CGRect rect = CGRectMake(0, 0, width, height);
 
-Mat* CGImageRefToMat(CGImageRef cgImage) {
-  // Get the width and height of the CGImageRef
-  size_t width = CGImageGetWidth(cgImage);
-  size_t height = CGImageGetHeight(cgImage);
+    cv::Mat mat(height, width, CV_8UC4);
+    CGContextRef context = CGBitmapContextCreate(mat.data, width, height, 8, 4 * width, CGImageGetColorSpace(image), kCGImageAlphaPremultipliedFirst | kCGBitmapByteOrder32Little);
 
-  // Create a color space
-  CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextDrawImage(context, rect, image);
+    CGContextRelease(context);
+    CGImageRelease(image);
 
-  // Create a bitmap context
-  CGContextRef bitmapContext = CGBitmapContextCreate(nullptr, width, height, 8, width * 4, colorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
-
-  // Draw the CGImageRef onto the bitmap context
-  CGRect rect = CGRectMake(0, 0, width, height);
-  CGContextDrawImage(bitmapContext, rect, cgImage);
-
-  // Create an OpenCV image from the bitmap context
-  Mat* image = new Mat(height, width, CV_8UC4, (unsigned char*)CGBitmapContextGetData(bitmapContext), width * 4);
-
-  // Clean up
-  CGContextRelease(bitmapContext);
-  CGColorSpaceRelease(colorSpace);
-
-  return image;
+    return mat;
 }
 
-FoundPoint* Confidence(Mat* image, Mat* pattern)
-{
-    // Create a result matrix
-    int result_cols =  image->cols - pattern->cols + 1;
-    int result_rows = image->rows - pattern->rows + 1;
+FoundPoint* FindImageInScreen(const cv::Mat &pattern){
+    Screenshot* screenImage = GetScreenshot();
+    Mat haystack = convertToMat(screenImage->ImageData);
+
     Mat result;
-    result.create(result_rows, result_cols, CV_32FC1);
+    matchTemplate(haystack, pattern, result, cv::TM_CCOEFF_NORMED);
 
-    // Perform the matching
-    matchTemplate(*image, *pattern, result, TM_CCOEFF_NORMED);
+    double minVal, maxVal;
+    cv::Point minLoc, maxLoc;
+    minMaxLoc(result, &minVal, &maxVal, &minLoc, &maxLoc);
 
-    // Normalize the result matrix
-    normalize(result, result, 0, 1, NORM_MINMAX, -1, Mat());
+    auto* res = new FoundPoint(maxLoc.x, maxLoc.y, maxVal);
 
-    // Localize the highest value
-    double minVal;
-    double maxVal;
-    auto* minLoc = new cv::Point();
-    auto* maxLoc = new cv::Point();
-
-    minMaxLoc(result, &minVal, &maxVal, minLoc, maxLoc, Mat());
-
-    return new FoundPoint(maxLoc, maxVal);
+    return res;
 }
 
-void NormalizeToScreenResolution(int cols, int rows, FoundPoint* point)
-{
-    ScreenWidthHeight* currentScreenRes = GetScreenResolution();
-    
-    point->X = point->X / (cols / currentScreenRes->Width);
-    point->Y = point->Y / (rows / currentScreenRes->Height);
+FoundPoint* FindImageInScreen(CGImageRef pattern) {
+    Screenshot* screenImage = GetScreenshot();
+    Mat haystack = convertToMat(screenImage->ImageData);
+    Mat needle = convertToMat(pattern);
+    Mat result;
+    matchTemplate(haystack, needle, result, cv::TM_CCOEFF_NORMED);
+
+    double minVal, maxVal;
+    cv::Point minLoc, maxLoc;
+    minMaxLoc(result, &minVal, &maxVal, &minLoc, &maxLoc);
+
+    auto* res = new FoundPoint(maxLoc.x, maxLoc.y, maxVal);
+
+    return res;
 }
 
-FoundPoint* FindImageOnImage(CGImageRef image, CGImageRef pattern)
-{
-    Mat* matImage = CGImageRefToMat(image);
-    Mat* matPattern = CGImageRefToMat(pattern);
-    
-    FoundPoint* foundObject = Confidence(matImage, matPattern);
-    
-    NormalizeToScreenResolution(matImage->cols, matImage->rows, foundObject);
-
-    delete matImage;
-    delete matPattern;
-    
-    return foundObject;
+Mat LoadImageFromByteArray(const uint8_t *data, size_t size) {
+    vector<uint8_t> buffer(data, data + size);
+    Mat image = cv::imdecode(buffer, cv::IMREAD_COLOR);
+    return image;
 }
 
-double Similarity(CGImageRef image1, CGImageRef image2)
-{
-    Mat* image1_mat = CGImageRefToMat(image1);
-    Mat* image2_mat = CGImageRefToMat(image2);
+double Similarity(Mat image1, Mat image2){
     // Calculate the difference image
     Mat diff;
-    absdiff(*image1_mat, *image2_mat, diff);
+    absdiff(image1, image2, diff);
 
     // Calculate the number of pixels with a non-zero difference
     int count = countNonZero(diff);
 
     // Calculate the percentage of pixels with a non-zero difference
     double percentage = (double)count / (double)(diff.total());
-    
+
     diff.release();
-    
-    image1_mat->release();
-    image2_mat->release();
-    
+
+    image1.release();
+    image2.release();
+
+    return percentage;
+}
+
+double Similarity(CGImageRef image1, CGImageRef image2)
+{
+    Mat image1_mat = convertToMat(image1);
+    Mat image2_mat = convertToMat(image2);
+
+    auto result = Similarity(image1_mat, image2_mat);
+
     CGImageRelease(image1);
     CGImageRelease(image2);
-    
-    return percentage;
+
+    return result;
 }

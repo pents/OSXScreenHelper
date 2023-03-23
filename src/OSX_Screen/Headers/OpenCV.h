@@ -18,15 +18,18 @@ struct FoundPoint{
     int X;
     int Y;
     double Confidence;
-    FoundPoint(cv::Point* point, double confidence){
-        X = point->x;
-        Y = point->y;
+    FoundPoint(int x, int y, double confidence){
+        X = x;
+        Y = y;
         Confidence = confidence;
-        delete point;
     }
 };
 
 double Similarity(CGImageRef image1, CGImageRef image2);
-FoundPoint* FindImageOnImage(CGImageRef image, CGImageRef pattern);
+double Similarity(Mat image1, Mat image2);
+FoundPoint* FindImageInScreen(CGImageRef pattern);
+FoundPoint* FindImageInScreen(const cv::Mat &pattern);
 
-#endif //HELPERLIB_SCREENHELPER_H
+Mat LoadImageFromByteArray(const uint8_t *data, size_t size);
+
+#endif //HELPERLIB_OPENCV_H

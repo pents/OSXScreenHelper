@@ -3,6 +3,7 @@
 //
 
 #include "ScreenHelper.h"
+#include "ScreenHelperException.h"
 
 ScreenWidthHeight* CurrentScreenResolution = nullptr;
 
@@ -15,7 +16,7 @@ inline Screenshot* GetScreenshotInner(CGImageRef image_ref)
         return result;
     }
 
-    throw new runtime_error("[GetScreenshotInner] Some error occured in taking screenshot - this may be because image_ref,dataProvider or cs_ref is null");
+    throw ScreenHelperException("GetScreenshotInner","Some error occured in taking screenshot - image_ref is null");
 }
 
 ScreenWidthHeight* GetScreenResolution()
@@ -60,14 +61,14 @@ bool SaveToFile(CGImageRef image, const std::string& filePath) {
                                                            false);
 
     if (url == nullptr) {
-        //std::cerr << "Failed to create CFURLRef from file path" << std::endl;
+        std::cerr << "Failed to create CFURLRef from file path" << std::endl;
         return false;
     }
 
     CGImageDestinationRef destination = CGImageDestinationCreateWithURL(url, kUTTypePNG, 1, nullptr);
 
     if (destination == nullptr) {
-        //std::cerr << "Failed to create CGImageDestinationRef" << std::endl;
+        std::cerr << "Failed to create CGImageDestinationRef" << std::endl;
         CFRelease(url);
         return false;
     }
@@ -77,7 +78,7 @@ bool SaveToFile(CGImageRef image, const std::string& filePath) {
     bool result = CGImageDestinationFinalize(destination);
 
     if (!result) {
-        //std::cerr << "Failed to save the image" << std::endl;
+        std::cerr << "Failed to save the image" << std::endl;
     }
 
     CFRelease(destination);

@@ -6,16 +6,9 @@
 //
 
 #include "ScreenHelperExternal.h"
+#include "ScreenHelperException.h"
 
-struct ImageBytes{
-    ImageBytes(unsigned char* data, int count){
-        Data = data;
-        DataCount = count;
-    }
 
-    unsigned char* Data;
-    int DataCount;
-};
 
 inline ImageBytes byteArrayFromCGImage(unsigned long width, unsigned long height, CGImageRef image) {
     // Get the width and height of the image
@@ -39,7 +32,7 @@ inline ImageBytes byteArrayFromCGImage(unsigned long width, unsigned long height
     // Clean up
     CFRelease(data);
 
-    return {byteArray, (int)byteCount};
+    return {byteArray, byteCount};
 }
 
 inline ScreenshotExternal* GetScreenshotExternal(Screenshot* screenshot){
@@ -54,25 +47,35 @@ inline ScreenshotExternal* GetScreenshotExternal(Screenshot* screenshot){
     result->Width = screenshot->Width;
     result->ImageData = imageData.Data;
     result->DataLength = imageData.DataCount;
-    CGImageRelease(screenshot->ImageData);
-    delete screenshot;
 
     return result;
 }
 
 ScreenWidthHeightExternal* GetScreenResolutionExternal(){
 
-    auto data = GetScreenResolution();
     auto result = new ScreenWidthHeightExternal();
-    result->Height = data->Height;
-    result->Width = data->Width;
-    delete data;
-    return result;
+    try{
+        auto data = GetScreenResolution();
+        result->Height = data->Height;
+        result->Width = data->Width;
+        delete data;
+        return result;
+    }catch(exception& ex){
+        result->Exception = ex.what();
+        result->ExceptionLength = strlen(result->Exception);
+    }
 }
 
 ScreenshotExternal* GetScreenshotExternal(){
-    auto* screenshot = GetScreenshot();
-    return GetScreenshotExternal(screenshot);
+    try{
+        auto* screenshot = GetScreenshot();
+        return GetScreenshotExternal(screenshot);
+    }catch(exception& ex){
+        auto* result = new ScreenshotExternal();
+        result->Exception = ex.what();
+        result->ExceptionLength = strlen(result->Exception);
+        return result;
+    }
 }
 
 ScreenshotExternal* GetPartScreenshotExternal(unsigned int top, unsigned int left, unsigned int right, unsigned int bottom){
@@ -81,12 +84,62 @@ ScreenshotExternal* GetPartScreenshotExternal(unsigned int top, unsigned int lef
     return GetScreenshotExternal(screenshot);
 }
 
+SimilarityResultExternal* SimilarityExternal(ImageBytes* image1, ImageBytes* image2){
+    auto* result = new SimilarityResultExternal();
+    try{
+        auto mat1Image = LoadImageFromByteArray(image1->Data, image1->DataCount);
+        auto mat2Image = LoadImageFromByteArray(image2->Data, image2->DataCount);
+
+        delete[] image1->Data;
+        delete[] image2->Data;
+        delete image1;
+        delete image2;
+
+        auto sim = Similarity(mat1Image, mat2Image);
+        result->Value = sim;
+        return result;
+    }
+    catch(exception& ex){
+        result->Exception = ex.what();
+        result->ExceptionLength = strlen(result->Exception);
+    }
+
+}
+
+FoundPointExternal* FindImageInScreenExternal(ImageBytes* pattern){
+    auto* result = new FoundPointExternal();
+    try{
+        auto patternImage = LoadImageFromByteArray(pattern->Data, pattern->DataCount);
+        auto* point = FindImageInScreen(patternImage);
+        delete[] pattern->Data;
+        delete pattern;
+
+
+        result->Confidence = point->Confidence;
+        result->X = point->X;
+        result->Y = point->Y;
+
+        delete point;
+
+        return result;
+    }
+    catch(exception& ex){
+        result->Exception = ex.what();
+        result->ExceptionLength = strlen(result->Exception);
+        return result;
+    }
+}
+
 const char* GetCurrentActiveWindowNameExternal(){
     return GetCurrentActiveWindowName()->c_str();
 }
 
 void ReleaseScreenWidthHeight(ScreenWidthHeightExternal* screenRef){
     delete screenRef;
+}
+
+void ReleaseFoundPoint(FoundPointExternal* pointRef){
+    delete pointRef;
 }
 
 void ReleaseScreenshot(ScreenshotExternal* screenRef){
