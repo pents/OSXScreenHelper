@@ -87,12 +87,22 @@ bool SaveToFile(CGImageRef image, const std::string& filePath) {
     return result;
 }
 
+int getIntValueFromDictionary(CFDictionaryRef dict, const void* key) {
+    CFNumberRef numberRef = (CFNumberRef)CFDictionaryGetValue(dict, key);
+    if (numberRef != NULL && CFGetTypeID(numberRef) == CFNumberGetTypeID()) {
+        int value = 0;
+        CFNumberGetValue(numberRef, kCFNumberIntType, &value);
+        return value;
+    }
+    return 0; // Default value
+}
 
-string* GetCurrentActiveWindowName()
+
+const char* GetCurrentActiveWindowName()
 {
     // Get a list of all open windows
     CFArrayRef windowList = CGWindowListCopyWindowInfo(kCGWindowListOptionOnScreenOnly | kCGWindowListExcludeDesktopElements, kCGNullWindowID);
-    string* result = nullptr;
+    const char* result = nullptr;
     // Loop through the windows to find the currently active one
     for (CFIndex i = 0; i < CFArrayGetCount(windowList); i++) {
         auto windowInfo = (CFDictionaryRef)CFArrayGetValueAtIndex(windowList, i);
@@ -102,8 +112,8 @@ string* GetCurrentActiveWindowName()
         if (CFBooleanGetValue(isTransparent))
             continue;
 
-        auto isMain = (CFBooleanRef)CFDictionaryGetValue(windowInfo, kCGWindowLayer);
-        if (!CFBooleanGetValue(isMain))
+        auto layer = getIntValueFromDictionary(windowInfo, kCGWindowLayer);
+        if (layer != 0)
             continue;
 
         // Get the title of the active window

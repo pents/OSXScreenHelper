@@ -146,7 +146,7 @@ FoundPointExternal* FindImageInScreenExternal(ImageBytes* pattern){
 ActiveWindowName* GetCurrentActiveWindowNameExternal(){
     auto* result = new ActiveWindowName();
     try{
-        result->Name = GetCurrentActiveWindowName()->c_str();
+        result->Name = GetCurrentActiveWindowName();
         return result;
     }
     catch(exception& ex){

@@ -17,81 +17,70 @@ const char* GetInnerCStr(CFStringRef cfString){
     return nullptr;
 }
 
-std::string* CFStringToStdString(CFStringRef cfString){
+const char* CFStringToStdString(CFStringRef cfString){
     if (cfString == nullptr){
         return nullptr;
     }
 
     CFIndex bufferSize = CFStringGetLength(cfString) + 1; // The +1 is for having space for the string to be NUL terminated
-    char buffer[bufferSize];
+    char* buffer;
 
     // CFStringGetCString is documented to return a false if the buffer is too small
     // (which shouldn't happen in this example) or if the conversion generally fails
     if (CFStringGetCString(cfString, buffer, bufferSize, kCFStringEncodingUTF8))
     {
-        return new std::string (buffer);
+        return buffer;
     }
     return nullptr;
 }
 
-const char* ConcatenateInner(CFStringRef str1, CFStringRef str2, const char* delimiter){
-    auto chArr1 = GetInnerCStr(str1);
-    auto chArr2 = GetInnerCStr(str2);
-
-    auto chArr1Size = strlen(chArr1);
-    auto chArr2Size = strlen(chArr2);
-    auto delimiterSize = strlen(delimiter);
-
-    auto chResult = new char[chArr1Size+chArr2Size+delimiterSize];
-    auto resultPointer = 0;
-
-    if (chArr1 != nullptr){
-        for (int i = 0; i < chArr1Size; ++i){
-            chResult[resultPointer] = chArr1[i];
-            resultPointer++;
-        }
+CFStringRef ConcatenateInner(CFStringRef string1, CFStringRef string2, const char* delimiter = nullptr){
+    if (string1 == nullptr && string2 == nullptr) {
+        return nullptr;
     }
-
-    if (delimiter != nullptr){
-        for (int i = 0; i < delimiterSize; ++i){
-            chResult[resultPointer] = delimiter[i];
-            resultPointer++;
-        }
+    if (string1 == nullptr || CFStringGetLength(string1) == 0) {
+        return string2;
     }
-
-    if (chArr2 != nullptr){
-        for (int i = 0; i < chArr2Size; ++i){
-            chResult[resultPointer] = chArr2[i];
-            resultPointer++;
-        }
+    if (string2 == nullptr || CFStringGetLength(string2) == 0) {
+        return string1;
     }
-
-    return chResult;
+    CFStringRef delimiterString = delimiter ? CFStringCreateWithCString(nullptr, delimiter, kCFStringEncodingUTF8) : nullptr;
+    CFStringRef format = delimiterString ? CFSTR("%@%s%@") : CFSTR("%@%@");
+    CFStringRef result = CFStringCreateWithFormat(nullptr, nullptr, format, string1, delimiterString, string2);
+    if (delimiterString) {
+        CFRelease(delimiterString);
+    }
+    return result;
 }
 
 CFStringRef ConcatenateCFStrings(CFStringRef str1, CFStringRef str2, const char* delimiter)
 {
     auto innerConcat = ConcatenateInner(str1, str2, delimiter);
-    auto concatenatedString = CFStringCreateWithCString(
-            nullptr,
-            innerConcat,
-            kCFStringEncodingUTF8);
 
     CFRelease(str1);
     CFRelease(str2);
-    delete[] innerConcat;
+    CFRelease(innerConcat);
 
-    return concatenatedString;
+    return innerConcat;
 }
 
-std::string* ConcatenateStrings(CFStringRef str1, CFStringRef str2, const char* delimiter)
+const char* ConcatenateStrings(CFStringRef str1, CFStringRef str2, const char* delimiter)
 {
     auto innerConcat = ConcatenateInner(str1, str2, delimiter);
 
-    CFRelease(str1);
-    CFRelease(str2);
+    const char* cString = nullptr;
+    char* buffer = nullptr;
+    CFIndex bufferSize = CFStringGetMaximumSizeForEncoding(CFStringGetLength(innerConcat), kCFStringEncodingUTF8) + 1;
+    buffer = new char[bufferSize];
+    if (CFStringGetCString(innerConcat, buffer, bufferSize, kCFStringEncodingUTF8)) {
+        cString = buffer;
+    } else {
+        delete[] buffer;
+        std::string str = CFStringGetCStringPtr(innerConcat, kCFStringEncodingUTF8);
+        cString = str.c_str();
+    }
+    CFRelease(innerConcat);
+    return cString;
 
-    auto strResult = new std::string(innerConcat);
-    delete[] innerConcat;
-    return strResult;
+
 }
