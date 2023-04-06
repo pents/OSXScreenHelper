@@ -13,6 +13,10 @@ extern "C" {
         int ExceptionLength;
     };
 
+    struct ActiveWindowName : BaseExternal{
+        const char* Name;
+    };
+
     struct ScreenWidthHeightExternal : BaseExternal{
         unsigned int Width;
         unsigned int Height;
@@ -44,7 +48,7 @@ extern "C" {
 ScreenWidthHeightExternal* GetScreenResolutionExternal();
 ScreenshotExternal* GetScreenshotExternal();
 ScreenshotExternal* GetPartScreenshotExternal(unsigned int top, unsigned int left, unsigned int right, unsigned int bottom);
-const char* GetCurrentActiveWindowNameExternal();
+ActiveWindowName* GetCurrentActiveWindowNameExternal();
 
 SimilarityResultExternal* SimilarityExternal(ImageBytes* image1, ImageBytes* image2);
 FoundPointExternal* FindImageInScreenExternal(ImageBytes* pattern);
@@ -52,7 +56,9 @@ FoundPointExternal* FindImageInScreenExternal(ImageBytes* pattern);
 void ReleaseScreenWidthHeight(ScreenWidthHeightExternal* screenRef);
 void ReleaseFoundPoint(FoundPointExternal* pointRef);
 void ReleaseScreenshot(ScreenshotExternal* screenshotsRef);
+void ReleaseActiveWindowName(ActiveWindowName* nameRef);
 void ReleaseString(const char* strRef);
+void ReleaseSimilarityResult(SimilarityResultExternal* simRef);
 
 }
 

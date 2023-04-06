@@ -8,7 +8,10 @@
 #include "ScreenHelperExternal.h"
 #include "ScreenHelperException.h"
 
-
+inline void FillException(exception& ex, BaseExternal* obj){
+    obj->Exception = ex.what();
+    obj->ExceptionLength = strlen(obj->Exception);
+}
 
 inline ImageBytes byteArrayFromCGImage(unsigned long width, unsigned long height, CGImageRef image) {
     // Get the width and height of the image
@@ -37,18 +40,25 @@ inline ImageBytes byteArrayFromCGImage(unsigned long width, unsigned long height
 
 inline ScreenshotExternal* GetScreenshotExternal(Screenshot* screenshot){
     auto* result = new ScreenshotExternal();
+    try{
 
-    auto imageData = byteArrayFromCGImage(
-            screenshot->Width,
-            screenshot->Height,
-            screenshot->ImageData);
 
-    result->Height = screenshot->Height;
-    result->Width = screenshot->Width;
-    result->ImageData = imageData.Data;
-    result->DataLength = imageData.DataCount;
+        auto imageData = byteArrayFromCGImage(
+                screenshot->Width,
+                screenshot->Height,
+                screenshot->ImageData);
 
-    return result;
+        result->Height = screenshot->Height;
+        result->Width = screenshot->Width;
+        result->ImageData = imageData.Data;
+        result->DataLength = imageData.DataCount;
+
+        return result;
+    }
+    catch(exception& ex){
+        FillException(ex, result);
+        return result;
+    }
 }
 
 ScreenWidthHeightExternal* GetScreenResolutionExternal(){
@@ -61,8 +71,7 @@ ScreenWidthHeightExternal* GetScreenResolutionExternal(){
         delete data;
         return result;
     }catch(exception& ex){
-        result->Exception = ex.what();
-        result->ExceptionLength = strlen(result->Exception);
+        FillException(ex, result);
     }
 }
 
@@ -72,16 +81,22 @@ ScreenshotExternal* GetScreenshotExternal(){
         return GetScreenshotExternal(screenshot);
     }catch(exception& ex){
         auto* result = new ScreenshotExternal();
-        result->Exception = ex.what();
-        result->ExceptionLength = strlen(result->Exception);
+        FillException(ex, result);
         return result;
     }
 }
 
 ScreenshotExternal* GetPartScreenshotExternal(unsigned int top, unsigned int left, unsigned int right, unsigned int bottom){
-    auto* params = new PartScreenshotParams(top, left, right, bottom);
-    auto* screenshot = GetPartScreenshot(params);
-    return GetScreenshotExternal(screenshot);
+    try{
+        auto* params = new PartScreenshotParams(top, left, right, bottom);
+        auto* screenshot = GetPartScreenshot(params);
+        return GetScreenshotExternal(screenshot);
+    }
+    catch(exception& ex){
+        auto result = new ScreenshotExternal();
+        FillException(ex, result);
+        return result;
+    }
 }
 
 SimilarityResultExternal* SimilarityExternal(ImageBytes* image1, ImageBytes* image2){
@@ -100,10 +115,9 @@ SimilarityResultExternal* SimilarityExternal(ImageBytes* image1, ImageBytes* ima
         return result;
     }
     catch(exception& ex){
-        result->Exception = ex.what();
-        result->ExceptionLength = strlen(result->Exception);
+        FillException(ex, result);
+        return result;
     }
-
 }
 
 FoundPointExternal* FindImageInScreenExternal(ImageBytes* pattern){
@@ -124,29 +138,56 @@ FoundPointExternal* FindImageInScreenExternal(ImageBytes* pattern){
         return result;
     }
     catch(exception& ex){
-        result->Exception = ex.what();
-        result->ExceptionLength = strlen(result->Exception);
+        FillException(ex, result);
         return result;
     }
 }
 
-const char* GetCurrentActiveWindowNameExternal(){
-    return GetCurrentActiveWindowName()->c_str();
+ActiveWindowName* GetCurrentActiveWindowNameExternal(){
+    auto* result = new ActiveWindowName();
+    try{
+        result->Name = GetCurrentActiveWindowName()->c_str();
+        return result;
+    }
+    catch(exception& ex){
+        FillException(ex, result);
+        return result;
+    }
+}
+void ReleaseException(BaseExternal* ptr){
+    if (ptr->ExceptionLength > 0){
+        delete[] ptr->Exception;
+    }
 }
 
 void ReleaseScreenWidthHeight(ScreenWidthHeightExternal* screenRef){
+    ReleaseException(screenRef);
     delete screenRef;
 }
 
 void ReleaseFoundPoint(FoundPointExternal* pointRef){
+    ReleaseException(pointRef);
     delete pointRef;
 }
 
 void ReleaseScreenshot(ScreenshotExternal* screenRef){
+    ReleaseException(screenRef);
     delete[] screenRef->ImageData;
     delete screenRef;
 }
 
+void ReleaseActiveWindowName(ActiveWindowName* nameRef){
+    ReleaseException(nameRef);
+    ReleaseString(nameRef->Name);
+    delete nameRef;
+}
+
 void ReleaseString(const char* strRef){
     delete[] strRef;
+}
+
+void ReleaseSimilarityResult(SimilarityResultExternal* simRef)
+{
+    ReleaseException(simRef);
+    delete simRef;
 }
