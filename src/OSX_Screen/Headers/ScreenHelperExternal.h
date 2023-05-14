@@ -26,7 +26,7 @@ extern "C" {
         unsigned int Width;
         unsigned int Height;
         unsigned char* ImageData;
-        int DataLength;
+        unsigned long DataLength;
     };
 
     struct FoundPointExternal : BaseExternal{
@@ -53,13 +53,20 @@ ActiveWindowName* GetCurrentActiveWindowNameExternal();
 SimilarityResultExternal* SimilarityExternal(ImageBytes* image1, ImageBytes* image2);
 FoundPointExternal* FindImageInScreenExternal(ImageBytes* pattern);
 
+
 void ReleaseScreenWidthHeight(ScreenWidthHeightExternal* screenRef);
 void ReleaseFoundPoint(FoundPointExternal* pointRef);
-void ReleaseScreenshot(ScreenshotExternal* screenshotsRef);
+void ReleaseScreenshot(ScreenshotExternal* screenshotsRef, bool disposeImage);
 void ReleaseActiveWindowName(ActiveWindowName* nameRef);
 void ReleaseString(const char* strRef);
+void ReleaseByteArray(unsigned char* dataPtr);
 void ReleaseSimilarityResult(SimilarityResultExternal* simRef);
 
+}
+
+inline void FillException(exception& ex, BaseExternal* obj){
+    obj->Exception = ex.what();
+    obj->ExceptionLength = strlen(obj->Exception);
 }
 
 #endif //HELPERLIB_SCREENHELPEREXTERNAL_H

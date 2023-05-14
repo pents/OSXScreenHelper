@@ -5,7 +5,7 @@ ScreenHelper is a C++ library that allows you to easily manage your screen and w
 
 Most functions are using `CoreGraphics` or `CoreFoundation` framework
 
-Note that some functions require `OpenCV`
+Note that some functions require `OpenCV` and `CImg`
 
 ### Features
 

@@ -8,10 +8,7 @@
 #include "ScreenHelperExternal.h"
 #include "ScreenHelperException.h"
 
-inline void FillException(exception& ex, BaseExternal* obj){
-    obj->Exception = ex.what();
-    obj->ExceptionLength = strlen(obj->Exception);
-}
+
 
 inline ImageBytes byteArrayFromCGImage(unsigned long width, unsigned long height, CGImageRef image) {
     // Get the width and height of the image
@@ -170,9 +167,11 @@ void ReleaseFoundPoint(FoundPointExternal* pointRef){
     delete pointRef;
 }
 
-void ReleaseScreenshot(ScreenshotExternal* screenRef){
+void ReleaseScreenshot(ScreenshotExternal* screenRef, bool disposeImage){
     ReleaseException(screenRef);
-    delete[] screenRef->ImageData;
+    if (disposeImage){
+        delete[] screenRef->ImageData;
+    }
     delete screenRef;
 }
 
@@ -184,6 +183,10 @@ void ReleaseActiveWindowName(ActiveWindowName* nameRef){
 
 void ReleaseString(const char* strRef){
     delete[] strRef;
+}
+
+void ReleaseByteArray(unsigned char* dataPtr){
+    delete[] dataPtr;
 }
 
 void ReleaseSimilarityResult(SimilarityResultExternal* simRef)

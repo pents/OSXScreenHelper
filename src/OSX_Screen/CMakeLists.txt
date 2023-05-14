@@ -38,11 +38,13 @@ target_sources(OSX_Screen
         Implementation/OpenCV.cpp
         Implementation/ScreenHelper.cpp
         Implementation/ScreenHelperExternal.cpp
+        Implementation/ScreenHelperCachedExternal.cpp
         )
 
 target_include_directories(OSX_Screen
         PUBLIC
         Headers
+        "/Library/CImg"
         )
 
 add_subdirectory(Common)
